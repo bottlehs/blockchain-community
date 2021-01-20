@@ -30,7 +30,7 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: false,
     },    
     images: {
-      type: Sequelize.STRING,
+      type: Sequelize.TEXT,
       allowNull: false,
     },     
     recommendTags: {
@@ -53,11 +53,11 @@ module.exports = (sequelize, Sequelize) => {
       defaultValue: "live",
     },    
     abstract: { // shortDescription
-      type: Sequelize.STRING,
+      type: Sequelize.TEXT,
       allowNull: false,
     },
     description: { // detailDescription
-      type: Sequelize.STRING,
+      type: Sequelize.TEXT,
       allowNull: false,
     },
     articleLink: { // reviewArticle
