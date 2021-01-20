@@ -1,81 +1,47 @@
 module.exports = (app) => {
   const passport = require("passport");
-  const dapps = require("../controllers/dapps.controller.js");
+  const chains = require("../controllers/chains.controller.js");
 
   var router = require("express").Router();
 
   /**
    * @swagger
    * definitions:
-   *   Dapp:
+   *   Chain:
    *     type: object
    *     required:
-   *       - categoriesId
-   *       - isOwner
-   *       - contactEmail
-   *       - logo
    *       - name
-   *       - url
-   *       - images
-   *       - recommendTags
-   *       - expectedMainnetTime
-   *       - state
-   *       - articleLink
+   *       - colorIcon
+   *       - icon
+   *       - iconNew
+   *       - supportToken
    *     properties:
-   *       categoriesId:
-   *         type: number
-   *       isOwner:
-   *         type: boolean
-   *       contactEmail:
-   *         type: string
-   *       logo:
-   *         type: string
    *       name:
    *         type: string
-   *       url:
+   *       colorIcon:
    *         type: string
-   *       images:
+   *       icon:
    *         type: string
-   *       recommendTags:
+   *       iconNew:
    *         type: string
-   *       expectedMainnetTime:
-   *         type: string
-   *       state:
-   *         type: string
-   *       articleLink:
-   *         type: string
-   *   ResDapp:
+   *       supportToken:
+   *         type: boolean
+   *   ResChain:
    *     type: object
    *     properties:
    *       id:
    *         type: number
-   *       usersId:
-   *         type: number
-   *       categoriesId:
-   *         type: number
-   *       isOwner:
-   *         type: boolean
-   *       contactEmail:
-   *         type: string
-   *       logo:
-   *         type: string
    *       name:
    *         type: string
-   *       url:
+   *       colorIcon:
    *         type: string
-   *       images:
+   *       icon:
    *         type: string
-   *       recommendTags:
+   *       iconNew:
    *         type: string
-   *       expectedMainnetTime:
-   *         type: string
-   *       state:
-   *         type: string
-   *       articleLink:
-   *         type: string
+   *       supportToken:
+   *         type: boolean
    *       status:
-   *         type: string
-   *       ipAddress:
    *         type: string
    *       createdAt:
    *         type: string
@@ -86,19 +52,19 @@ module.exports = (app) => {
   /**
    * @swagger
    * tags:
-   *   name: Dapp
-   *   description: 디앱
+   *   name: Chain
+   *   description: 블록체인
    */
 
   /**
    * @swagger
-   * /api/dapps:
-   *   dapp:
+   * /api/chains:
+   *   post:
    *     security:
    *       - bearerToken: []
-   *     summary: 디앱 등록
-   *     description: 디앱 등록
-   *     tags: [Dapp]
+   *     summary: 블록체인 등록
+   *     description: 블록체인 등록
+   *     tags: [Chain]
    *     produces:
    *       - application/json
    *     parameters:
@@ -107,12 +73,12 @@ module.exports = (app) => {
    *         in: body
    *         required: true
    *         schema:
-   *           $ref: '#/definitions/Dapp'
+   *           $ref: '#/definitions/Chain'
    *     responses:
    *       200:
    *         description: OK
    *         schema:
-   *           $ref: '#/definitions/ResDapp'
+   *           $ref: '#/definitions/ResChain'
    *       201:
    *         $ref: '#/components/res/Created'
    *       204:
@@ -132,21 +98,21 @@ module.exports = (app) => {
   router.post(
     "/",
     passport.authenticate("jwt", { session: false }),
-    dapps.create
+    chains.create
   );
 
   /**
    * @swagger
-   * /api/dapps:
+   * /api/chains:
    *   get:
-   *     summary: 디앱 전체 조회
-   *     description: 디앱 전체 조회
-   *     tags: [Dapp]
+   *     summary: 블록체인 전체 조회
+   *     description: 블록체인 전체 조회
+   *     tags: [Chain]
    *     produces:
    *       - application/json
    *     parameters:
-   *       - name: title
-   *         description: title
+   *       - name: question
+   *         description: question
    *         in: query
    *       - name: page
    *         description: page
@@ -160,7 +126,7 @@ module.exports = (app) => {
    *         schema:
    *           type: array
    *           items:
-   *             $ref: '#/definitions/ResDapp'
+   *             $ref: '#/definitions/ResChain'
    *       201:
    *         $ref: '#/components/res/Created'
    *       204:
@@ -176,15 +142,15 @@ module.exports = (app) => {
    *       500:
    *         $ref: '#/components/res/InternalServerError'
    */
-  router.get("/", dapps.findAll);
+  router.get("/", chains.findAll);
 
   /**
    * @swagger
-   * /api/dapps/{id}:
+   * /api/chains/{id}:
    *   get:
-   *     summary: 디앱 단건 조회
-   *     description: 디앱 단건 조회
-   *     tags: [Dapp]
+   *     summary: 블록체인 단건 조회
+   *     description: 블록체인 단건 조회
+   *     tags: [Chain]
    *     produces:
    *       - application/json
    *     parameters:
@@ -198,7 +164,7 @@ module.exports = (app) => {
    *       200:
    *         description: OK
    *         schema:
-   *           $ref: '#/definitions/ResDapp'
+   *           $ref: '#/definitions/ResChain'
    *       201:
    *         $ref: '#/components/res/Created'
    *       204:
@@ -214,17 +180,17 @@ module.exports = (app) => {
    *       500:
    *         $ref: '#/components/res/InternalServerError'
    */
-  router.get("/:id", dapps.findOne);
+  router.get("/:id", chains.findOne);
 
   /**
    * @swagger
-   * /api/dapps/{id}:
+   * /api/chains/{id}:
    *   put:
    *     security:
    *       - bearerToken: []
-   *     summary: 디앱 수정
-   *     description: 디앱 수정
-   *     tags: [Dapp]
+   *     summary: 블록체인 수정
+   *     description: 블록체인 수정
+   *     tags: [Chain]
    *     produces:
    *       - application/json
    *     parameters:
@@ -239,12 +205,12 @@ module.exports = (app) => {
    *         in: body
    *         required: true
    *         schema:
-   *           $ref: '#/definitions/Dapp'
+   *           $ref: '#/definitions/Chain'
    *     responses:
    *       200:
    *         description: OK
    *         schema:
-   *           $ref: '#/definitions/ResDapp'
+   *           $ref: '#/definitions/ResChain'
    *       201:
    *         $ref: '#/components/res/Created'
    *       204:
@@ -263,18 +229,18 @@ module.exports = (app) => {
   router.put(
     "/:id",
     passport.authenticate("jwt", { session: false }),
-    dapps.update
+    chains.update
   );
 
   /**
    * @swagger
-   * /api/dapps/{id}:
+   * /api/chains/{id}:
    *   delete:
    *     security:
    *       - bearerToken: []
-   *     summary: 디앱 삭제
-   *     description: 디앱 삭제
-   *     tags: [Dapp]
+   *     summary: 블록체인 삭제
+   *     description: 블록체인 삭제
+   *     tags: [Chain]
    *     produces:
    *       - application/json
    *     parameters:
@@ -305,18 +271,18 @@ module.exports = (app) => {
   router.delete(
     "/:id",
     passport.authenticate("jwt", { session: false }),
-    dapps.delete
+    chains.delete
   );
 
   /**
    * @swagger
-   * /api/dapps:
+   * /api/chains:
    *   delete:
    *     security:
    *       - bearerToken: []
-   *     summary: 디앱 전체 삭제
-   *     description: 디앱 전체 삭제
-   *     tags: [Dapp]
+   *     summary: 블록체인 전체 삭제
+   *     description: 블록체인 전체 삭제
+   *     tags: [Chain]
    *     produces:
    *       - application/json
    *     responses:
@@ -340,8 +306,8 @@ module.exports = (app) => {
   router.delete(
     "/",
     passport.authenticate("jwt", { session: false }),
-    dapps.deleteAll
+    chains.deleteAll
   );
 
-  app.use("/api/dapps", router);
+  app.use("/api/chains", router);
 };

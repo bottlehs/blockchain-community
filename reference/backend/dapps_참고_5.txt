@@ -1,0 +1,28 @@
+abstract: "Short Description"
+address: "TRON Mainnet Smart Contract Addresses"
+affiliate_link: ""
+article_link: "Product Review Article"
+category: 15
+chains: [9]
+contact_email: "qudgns9@gmail.com"
+decimal: 111
+desc: "Detail Description"
+has_affiliate_link: 1
+has_token: true
+images: ["image/dapp/fa1e61e41ad0462eabb20a12d2836b17.blob"]
+is_owner: true
+logo: "image/dapp/6b6deced07104eccbf62c985da730715.blob"
+name: "Project Name"
+on_chain: 0
+payment_id: ""
+recommend_tags: [8522, 8524]
+socials: {Facebook: "fb", Twitter: "", Medium: "", Reddit: "", Discord: "", Telegram: "", Instagram: "",…}
+state: 0
+tags: []
+token_chain: 9
+token_coingecko_link: "Is your token listed on Coingecko"
+token_contract: "Token Contract"
+token_logo: "image/dapp/ac4658dfcb8f4298a7fe74f4f5d8a3d9.blob"
+token_name: "Ticker of your token"
+token_ticker: "Ticker of your token"
+url: "Dapp Website"

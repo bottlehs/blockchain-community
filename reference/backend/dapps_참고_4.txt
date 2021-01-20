@@ -1,0 +1,28 @@
+abstract: "Short Description"
+address: "Bitcoin Mainnet Smart Contract Addresses"
+affiliate_link: "Do you have an affiliate or referral program?"
+article_link: "Product Review Article"
+category: 15
+chains: [20]
+contact_email: "qudgns9@gmail.com"
+decimal: 777
+desc: "Detail Description"
+has_affiliate_link: 0
+has_token: true
+images: ["image/dapp/92cec232dda846f38d6f4dc65ca5aff1.blob"]
+is_owner: true
+logo: "image/dapp/58811a69f65e4974b0f3f19d18168256.blob"
+name: "Project Name"
+on_chain: 0
+payment_id: ""
+recommend_tags: []
+socials: {Facebook: "fb", Twitter: "", Medium: "", Reddit: "", Discord: "", Telegram: "", Instagram: "",…}
+state: 0
+tags: []
+token_chain: 1
+token_coingecko_link: "Is your token listed on Coingecko"
+token_contract: "Token Contract"
+token_logo: "image/dapp/5a56d65feb414f728cab1dbc0bfa814d.blob"
+token_name: "Ticker of your token."
+token_ticker: "Ticker of your token."
+url: "Dapp Website"

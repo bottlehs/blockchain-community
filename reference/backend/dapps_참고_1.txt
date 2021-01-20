@@ -1,0 +1,28 @@
+category, blockchain
+
+[Basic Information]
+Product Logo
+Project Name
+Dapp Website
+Preview Image
+Category : relation
+Tags
+Product Status : 0 or 1
+
+Expected Launch
+
+
+Short Description
+Detail Description
+Product Review Article
+
+[Token Info]
+Does your product has its tokens or cryptocurrencies?
+
+Token Logo
+
+On which blockchain do you issue your token?
+
+
+
+DIETHAE.COM

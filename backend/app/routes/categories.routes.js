@@ -1,81 +1,37 @@
 module.exports = (app) => {
   const passport = require("passport");
-  const dapps = require("../controllers/dapps.controller.js");
+  const categories = require("../controllers/categories.controller.js");
 
   var router = require("express").Router();
 
   /**
    * @swagger
    * definitions:
-   *   Dapp:
+   *   Category:
    *     type: object
    *     required:
-   *       - categoriesId
-   *       - isOwner
-   *       - contactEmail
-   *       - logo
    *       - name
-   *       - url
-   *       - images
-   *       - recommendTags
-   *       - expectedMainnetTime
-   *       - state
-   *       - articleLink
+   *       - backgroundColor
+   *       - icon
    *     properties:
-   *       categoriesId:
-   *         type: number
-   *       isOwner:
-   *         type: boolean
-   *       contactEmail:
-   *         type: string
-   *       logo:
-   *         type: string
    *       name:
    *         type: string
-   *       url:
+   *       backgroundColor:
    *         type: string
-   *       images:
+   *       icon:
    *         type: string
-   *       recommendTags:
-   *         type: string
-   *       expectedMainnetTime:
-   *         type: string
-   *       state:
-   *         type: string
-   *       articleLink:
-   *         type: string
-   *   ResDapp:
+   *   ResCategory:
    *     type: object
    *     properties:
    *       id:
    *         type: number
-   *       usersId:
-   *         type: number
-   *       categoriesId:
-   *         type: number
-   *       isOwner:
-   *         type: boolean
-   *       contactEmail:
-   *         type: string
-   *       logo:
-   *         type: string
    *       name:
    *         type: string
-   *       url:
+   *       backgroundColor:
    *         type: string
-   *       images:
-   *         type: string
-   *       recommendTags:
-   *         type: string
-   *       expectedMainnetTime:
-   *         type: string
-   *       state:
-   *         type: string
-   *       articleLink:
+   *       icon:
    *         type: string
    *       status:
-   *         type: string
-   *       ipAddress:
    *         type: string
    *       createdAt:
    *         type: string
@@ -86,19 +42,19 @@ module.exports = (app) => {
   /**
    * @swagger
    * tags:
-   *   name: Dapp
-   *   description: 디앱
+   *   name: Category
+   *   description: 카테고리
    */
 
   /**
    * @swagger
-   * /api/dapps:
-   *   dapp:
+   * /api/categories:
+   *   post:
    *     security:
    *       - bearerToken: []
-   *     summary: 디앱 등록
-   *     description: 디앱 등록
-   *     tags: [Dapp]
+   *     summary: 카테고리 등록
+   *     description: 카테고리 등록
+   *     tags: [Category]
    *     produces:
    *       - application/json
    *     parameters:
@@ -107,12 +63,12 @@ module.exports = (app) => {
    *         in: body
    *         required: true
    *         schema:
-   *           $ref: '#/definitions/Dapp'
+   *           $ref: '#/definitions/Category'
    *     responses:
    *       200:
    *         description: OK
    *         schema:
-   *           $ref: '#/definitions/ResDapp'
+   *           $ref: '#/definitions/ResCategory'
    *       201:
    *         $ref: '#/components/res/Created'
    *       204:
@@ -132,21 +88,21 @@ module.exports = (app) => {
   router.post(
     "/",
     passport.authenticate("jwt", { session: false }),
-    dapps.create
+    categories.create
   );
 
   /**
    * @swagger
-   * /api/dapps:
+   * /api/categories:
    *   get:
-   *     summary: 디앱 전체 조회
-   *     description: 디앱 전체 조회
-   *     tags: [Dapp]
+   *     summary: 카테고리 전체 조회
+   *     description: 카테고리 전체 조회
+   *     tags: [Category]
    *     produces:
    *       - application/json
    *     parameters:
-   *       - name: title
-   *         description: title
+   *       - name: question
+   *         description: question
    *         in: query
    *       - name: page
    *         description: page
@@ -160,7 +116,7 @@ module.exports = (app) => {
    *         schema:
    *           type: array
    *           items:
-   *             $ref: '#/definitions/ResDapp'
+   *             $ref: '#/definitions/ResCategory'
    *       201:
    *         $ref: '#/components/res/Created'
    *       204:
@@ -176,15 +132,15 @@ module.exports = (app) => {
    *       500:
    *         $ref: '#/components/res/InternalServerError'
    */
-  router.get("/", dapps.findAll);
+  router.get("/", categories.findAll);
 
   /**
    * @swagger
-   * /api/dapps/{id}:
+   * /api/categories/{id}:
    *   get:
-   *     summary: 디앱 단건 조회
-   *     description: 디앱 단건 조회
-   *     tags: [Dapp]
+   *     summary: 카테고리 단건 조회
+   *     description: 카테고리 단건 조회
+   *     tags: [Category]
    *     produces:
    *       - application/json
    *     parameters:
@@ -198,7 +154,7 @@ module.exports = (app) => {
    *       200:
    *         description: OK
    *         schema:
-   *           $ref: '#/definitions/ResDapp'
+   *           $ref: '#/definitions/ResCategory'
    *       201:
    *         $ref: '#/components/res/Created'
    *       204:
@@ -214,17 +170,17 @@ module.exports = (app) => {
    *       500:
    *         $ref: '#/components/res/InternalServerError'
    */
-  router.get("/:id", dapps.findOne);
+  router.get("/:id", categories.findOne);
 
   /**
    * @swagger
-   * /api/dapps/{id}:
+   * /api/categories/{id}:
    *   put:
    *     security:
    *       - bearerToken: []
-   *     summary: 디앱 수정
-   *     description: 디앱 수정
-   *     tags: [Dapp]
+   *     summary: 카테고리 수정
+   *     description: 카테고리 수정
+   *     tags: [Category]
    *     produces:
    *       - application/json
    *     parameters:
@@ -239,12 +195,12 @@ module.exports = (app) => {
    *         in: body
    *         required: true
    *         schema:
-   *           $ref: '#/definitions/Dapp'
+   *           $ref: '#/definitions/Category'
    *     responses:
    *       200:
    *         description: OK
    *         schema:
-   *           $ref: '#/definitions/ResDapp'
+   *           $ref: '#/definitions/ResCategory'
    *       201:
    *         $ref: '#/components/res/Created'
    *       204:
@@ -263,18 +219,18 @@ module.exports = (app) => {
   router.put(
     "/:id",
     passport.authenticate("jwt", { session: false }),
-    dapps.update
+    categories.update
   );
 
   /**
    * @swagger
-   * /api/dapps/{id}:
+   * /api/categories/{id}:
    *   delete:
    *     security:
    *       - bearerToken: []
-   *     summary: 디앱 삭제
-   *     description: 디앱 삭제
-   *     tags: [Dapp]
+   *     summary: 카테고리 삭제
+   *     description: 카테고리 삭제
+   *     tags: [Category]
    *     produces:
    *       - application/json
    *     parameters:
@@ -305,18 +261,18 @@ module.exports = (app) => {
   router.delete(
     "/:id",
     passport.authenticate("jwt", { session: false }),
-    dapps.delete
+    categories.delete
   );
 
   /**
    * @swagger
-   * /api/dapps:
+   * /api/categories:
    *   delete:
    *     security:
    *       - bearerToken: []
-   *     summary: 디앱 전체 삭제
-   *     description: 디앱 전체 삭제
-   *     tags: [Dapp]
+   *     summary: 카테고리 전체 삭제
+   *     description: 카테고리 전체 삭제
+   *     tags: [Category]
    *     produces:
    *       - application/json
    *     responses:
@@ -340,8 +296,8 @@ module.exports = (app) => {
   router.delete(
     "/",
     passport.authenticate("jwt", { session: false }),
-    dapps.deleteAll
+    categories.deleteAll
   );
 
-  app.use("/api/dapps", router);
+  app.use("/api/categories", router);
 };
