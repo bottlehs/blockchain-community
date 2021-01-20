@@ -13,7 +13,7 @@ exports.create = (req, res, next) => {
     return;
   }
 
-  if (!req.body.categorysId) {
+  if (!req.body.categoriesId) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
@@ -107,7 +107,7 @@ exports.create = (req, res, next) => {
   // Create a Dapp
   const dapp = {
     usersId: req.user.id,
-    categorysId: req.body.categorysId,
+    categoriesId: req.body.categoriesId,
     isOwner: req.body.isOwner,
     contactEmail: req.body.contactEmail,
     logo: req.body.logo,

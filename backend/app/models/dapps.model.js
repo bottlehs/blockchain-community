@@ -4,7 +4,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.BIGINT(20),
       allowNull: false,
     },
-    categorysId: {
+    categoriesId: {
       type: Sequelize.BIGINT(20),
       allowNull: false,
     },

@@ -10,7 +10,7 @@ module.exports = (app) => {
    *   Dapp:
    *     type: object
    *     required:
-   *       - categorysId
+   *       - categoriesId
    *       - isOwner
    *       - contactEmail
    *       - logo
@@ -22,7 +22,7 @@ module.exports = (app) => {
    *       - state
    *       - articleLink
    *     properties:
-   *       categorysId:
+   *       categoriesId:
    *         type: number
    *       isOwner:
    *         type: boolean
@@ -51,9 +51,27 @@ module.exports = (app) => {
    *         type: number
    *       usersId:
    *         type: number
+   *       categoriesId:
+   *         type: number
+   *       isOwner:
+   *         type: boolean
+   *       contactEmail:
+   *         type: string
+   *       logo:
+   *         type: string
    *       name:
    *         type: string
-   *       description:
+   *       url:
+   *         type: string
+   *       images:
+   *         type: string
+   *       recommendTags:
+   *         type: string
+   *       expectedMainnetTime:
+   *         type: string
+   *       state:
+   *         type: string
+   *       articleLink:
    *         type: string
    *       status:
    *         type: string

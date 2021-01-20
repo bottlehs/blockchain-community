@@ -32,5 +32,6 @@ db.inquires = require("./inquires.model.js")(sequelize, Sequelize);
 db.posts = require("./posts.model.js")(sequelize, Sequelize);
 db.comments = require("./comments.model.js")(sequelize, Sequelize);
 db.dapps = require("./dapps.model.js")(sequelize, Sequelize);
+db.categories = require("./categories.model.js")(sequelize, Sequelize);
 
 module.exports = db;
