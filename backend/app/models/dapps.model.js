@@ -4,6 +4,19 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.BIGINT(20),
       allowNull: false,
     },
+    categorysId: {
+      type: Sequelize.BIGINT(20),
+      allowNull: false,
+    },
+    isOwner: {
+      type: Sequelize.BOOLEAN,
+      allowNull: false,
+      defaultValue: 0,
+    },
+    contactEmail: {
+      type: Sequelize.STRING(100),
+      allowNull: false,
+    },
     logo: {
       type: Sequelize.STRING(100),
       allowNull: false,
@@ -12,36 +25,42 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING(100),
       allowNull: false,
     },
-    website: {
+    url: {
       type: Sequelize.STRING(100),
       allowNull: false,
     },    
-    previewImage: {
+    images: {
       type: Sequelize.STRING,
       allowNull: false,
-    },    
-    category: {
-      type: Sequelize.STRING(50),
-      allowNull: false,
-    },    
-    tags: {
+    },     
+    recommendTags: {
       type: Sequelize.STRING(100),
       allowNull: false,
+    },
+    expectedMainnetTime: {
+      type: Sequelize.DATE(6),
+      allowNull: false,
+      defaultValue: "0000-00-00",
     },
     status: {
       type: Sequelize.STRING(20),
       allowNull: false,
       defaultValue: "publish",
     },
-    shortDescription: {
+    state: {
+      type: Sequelize.STRING(20),
+      allowNull: false,
+      defaultValue: "live",
+    },    
+    abstract: { // shortDescription
       type: Sequelize.STRING,
       allowNull: false,
     },
-    detailDescription: {
+    description: { // detailDescription
       type: Sequelize.STRING,
       allowNull: false,
     },
-    reviewArticle: {
+    articleLink: { // reviewArticle
       type: Sequelize.STRING(100),
       allowNull: false,
     },

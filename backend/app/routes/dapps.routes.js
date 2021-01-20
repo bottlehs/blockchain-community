@@ -10,12 +10,39 @@ module.exports = (app) => {
    *   Dapp:
    *     type: object
    *     required:
+   *       - categorysId
+   *       - isOwner
+   *       - contactEmail
+   *       - logo
    *       - name
-   *       - description
+   *       - url
+   *       - images
+   *       - recommendTags
+   *       - expectedMainnetTime
+   *       - state
+   *       - articleLink
    *     properties:
+   *       categorysId:
+   *         type: number
+   *       isOwner:
+   *         type: boolean
+   *       contactEmail:
+   *         type: string
+   *       logo:
+   *         type: string
    *       name:
    *         type: string
-   *       description:
+   *       url:
+   *         type: string
+   *       images:
+   *         type: string
+   *       recommendTags:
+   *         type: string
+   *       expectedMainnetTime:
+   *         type: string
+   *       state:
+   *         type: string
+   *       articleLink:
    *         type: string
    *   ResDapp:
    *     type: object
