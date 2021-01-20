@@ -1,0 +1,6 @@
+token_chain: 9
+token_coingecko_link: "Is your token listed on Coingecko"
+token_contract: "Token Contract"
+token_logo: "image/dapp/ac4658dfcb8f4298a7fe74f4f5d8a3d9.blob"
+token_name: "Ticker of your token"
+token_ticker: "Ticker of your token"

@@ -1,0 +1,32 @@
+abstract: "Short Description"
+affiliate_link: ""
+article_link: "Product Review Article"
+category: 1
+contact_email: "qudgns9@gmail.com"ㄴ
+desc: "Detail Description"
+has_affiliate_link: 2
+has_token: false
+images: ["image/dapp/01ef4ef3469845c2a2be673a244b5a51.blob"]
+0: "image/dapp/01ef4ef3469845c2a2be673a244b5a51.blob"
+is_owner: false
+logo: "image/dapp/285fc864ef064390a5ff693df32d5f11.blob"
+name: "Project Name"
+on_chain: 2
+payment_id: ""
+recommend_tags: []
+socials: {Facebook: "fb", Twitter: "", Medium: "", Reddit: "", Discord: "", Telegram: "", Instagram: "",…}
+Discord: ""
+Facebook: "fb"
+Github: ""
+Instagram: ""
+Linkedin: ""
+Medium: ""
+Reddit: ""
+Slack: ""
+Telegram: ""
+Twitter: ""
+WeChat: ""
+Youtube: ""
+state: 0
+tags: []
+url: "Dapp Website"

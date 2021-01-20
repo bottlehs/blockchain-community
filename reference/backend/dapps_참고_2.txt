@@ -1,0 +1,23 @@
+abstract: "Short Description"
+affiliate_link: ""
+article_link: "Product Review Article"
+category: 1
+contact_email: "qudgns9@gmail.com"
+desc: "Detail Description"
+expected_mainnet_time: "2021-01"
+has_affiliate_link: 2
+has_token: false
+images: []
+is_owner: true
+logo: "image/dapp/47d739cd725d461ba0d4117bf4fabe21.blob"
+name: "Project Name"
+on_chain: 2
+payment_id: ""
+recommend_tags: [8150, 8152]
+0: 8150
+1: 8152
+socials: {Facebook: "페이스북", Twitter: "트위터", Medium: "", Reddit: "", Discord: "", Telegram: "", Instagram: "",…}
+
+state: 2
+tags: []
+url: "Dapp Website"
