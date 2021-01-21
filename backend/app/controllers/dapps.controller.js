@@ -29,7 +29,7 @@ exports.create = (req, res, next) => {
         });
         return;
       });
-  },
+  }
   if (!req.body.isOwner) {
     res.status(400).send({
       message: "Content can not be empty!",
