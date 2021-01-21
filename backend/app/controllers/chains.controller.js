@@ -48,6 +48,7 @@ exports.create = (req, res, next) => {
     icon: req.body.icon,
     iconNew: req.body.iconNew,
     supportToken: req.body.supportToken,
+    ipAddress: req.headers["x-forwarded-for"] || req.connection.remoteAddress,
   };
 
   // Save Chain in the database
