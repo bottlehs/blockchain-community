@@ -133,7 +133,10 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.TEXT,
       allowNull: false,      
     },    
-    // Token Info ( 별도 테이블로 분리 할것 )
+    /**
+     * XXX : Token Info 별도 테이블로 분리 고려 
+     */
+    // Start Token Info
     hasToken: {
       /**
        * 토큰여부 */       
