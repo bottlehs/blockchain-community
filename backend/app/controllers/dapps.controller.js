@@ -12,7 +12,7 @@ exports.create = (req, res, next) => {
     });
     return;
   } else {
-    // Posts ID 유무 체크
+    // Categories ID 유무 체크
     const Category = db.categories;
     Category.findByPk(req.body.categoriesId)
       .then((data) => {
@@ -131,6 +131,10 @@ exports.create = (req, res, next) => {
       message: "Content can not be empty!",
     });
     return;
+  } else {
+    /**
+     * TODO : Chains ID 유무 체크
+     */
   }
   if (!req.body.address) {
     res.status(400).send({
@@ -149,6 +153,10 @@ exports.create = (req, res, next) => {
       message: "Content can not be empty!",
     });
     return;
+  } else {
+    /**
+     * TODO : Chains ID 유무 체크
+     */
   }
   if (!req.body.tokenCoingeckoLink) {
     res.status(400).send({
