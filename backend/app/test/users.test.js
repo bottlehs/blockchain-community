@@ -1,17 +1,27 @@
 const request = require('supertest');
-const app = require('../../server');
+const app = require('../../server.jest');
+require("../routes/users.routes")(app);
 
-describe('Go Fit Server API TEST', () => {
-  test('should test that true === true', () => {
-    expect(true).toBe(true)
-  })
+jest.mock("./save_json", () => ({
+  save: jest.fn(),
+}));
 
-  test('API Call Test', async (done) => {
-    const response = await request(app)
-    .post('/api/users').send({
-      userId: 1,
-      title: 'test is cool',
-    })
-    expect(response.status).toEqual(200)
-  })
-})
+jest.mock("./usStates.json", () => [
+  {
+    state: "MI",
+    capital: "Lansing",
+    governor: "Gretchen Whitmer",
+  },
+  {
+    state: "GA",
+    capital: "Atlanta",
+    governor: "Brian Kemp",
+  },
+]);
+
+describe("testing-server-users-routes", () => {
+  it("GET /api/users - success", async () => {
+    const response = await request(app).get("/api/users");
+    expect(response.statusCode).toEqual(200);
+  });
+});

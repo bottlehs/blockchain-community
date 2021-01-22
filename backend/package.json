@@ -4,13 +4,18 @@
   "description": "blockchain-community-backend",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --detectOpenHandles --forceExit",
     "start": "nodemon ./bin/www --exec babel-node --presets babel-preset-env",
     "local": "set NODE_ENV=local nodemon ./bin/www --exec babel-node --presets babel-preset-env",
     "development": "NODE_ENV=development node ./bin/www --exec babel-node --presets babel-preset-env",
     "production": "NODE_ENV=production node ./bin/www --exec babel-node --presets babel-preset-env",
     "frontend": "cd ../frontend && npm start",
     "backendfrontenddev": "concurrently \"npm run start\" \"npm run frontend\""
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   },
   "keywords": [
     "node.js"
@@ -42,6 +47,8 @@
     "swagger-ui-express": "^4.1.4"
   },
   "devDependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.1.0",
