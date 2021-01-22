@@ -1,5 +1,5 @@
 const db = require("../models");
-const Chain = db.chain;
+const Chain = db.chains;
 const Op = db.Sequelize.Op;
 const Pagination = require("../utils/pagination");
 
