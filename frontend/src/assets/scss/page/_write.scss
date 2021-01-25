@@ -1,0 +1,406 @@
+@charset "UTF-8";
+
+/* 작성 */
+.form-write {
+  padding: rem(20) $content-space rem(33);
+  background: $gray8;
+
+  input, textarea {
+    @extend .fs15r;
+    width: 100%;
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="email"] {
+    height: rem(43);
+    padding-top: rem(3);
+  }
+
+  &__label {
+    @extend .fs14m;
+    padding: rem(25) 0 rem(10);
+    display: flex;
+    flex: 1 1 auto;
+    word-break: keep-all;
+    line-height: 1.45;
+    justify-content: space-between;
+
+    span {
+      @extend .fs12r;
+      color: $gray1;
+      flex: 0 0 rem(70);
+      text-align: right;
+      margin-top: rem(5);
+    }
+
+    &:first-child {
+      padding-top: rem(20);
+    }
+  }
+
+  &__inputs {
+    border: solid $gray7;
+    border-width: 1px 0;
+    margin: 0 #{-$content-space};
+    padding: 0 $content-space 0;
+    background: $white;
+
+    input, textarea {
+      margin: rem(4) 0 rem(5);
+    }
+  }
+
+  &__product {
+    display: flex;
+    margin-bottom: rem(16);
+
+    &-thumb {
+      flex: 0 0 rem(85);
+      height: rem(85);
+      border-radius: rem(10);
+      overflow: hidden;
+      margin-right: rem(15);
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &-info {
+      flex: 1 1 auto;
+      letter-spacing: -0.021em;
+      padding-top: rem(2);
+      line-height: 1.35;
+
+      .txt1 {
+        @extend .fs18m;
+      }
+
+      .txt2 {
+        @extend .fs15m;
+        margin-top: rem(11);
+      }
+    }
+  }
+
+  &__picture {
+    margin-top: rem(20);
+
+    dl {
+      overflow: hidden;
+      dt {
+        float: left;
+      }
+      dd {
+        overflow: hidden;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: auto;
+      }
+    }
+
+    .plus {
+      background: $white;
+      position: relative;
+      border-radius: rem(12);
+
+      &:before {
+        content: '';
+        display: block;
+        padding-top: 100%;
+      }
+
+      button {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      em {
+        @extend .fs13r;
+        color: $gray3;
+        line-height: 0;
+        position: relative;
+        top: rem(-27);
+      }
+    }
+
+    .preview {
+      position: relative;
+      border-radius: rem(12);
+      display: block;
+      border: 1px dashed $gray5;
+      background: $white 50% 50% no-repeat;
+      background-size: 101% 101%;
+      overflow: hidden;
+
+      &:before {
+        content: '';
+        display: block;
+        padding-top: 100%;
+      }
+
+      span, p {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .delete {
+      border-radius: 100%;
+      position: absolute;
+      top: rem(6);
+      right: rem(6);
+      z-index: 2;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: nowrap;
+      li {
+        position: relative;
+      }
+    }
+
+    ul.col2 {
+      margin: 0 rem(-12.5) rem(15);
+      li {
+        width: 50%;
+        padding: 0 rem(12.5);
+      }
+      .plus {
+        border: 1px dashed $gray5;
+      }
+    }
+
+    dl.col4 {
+      margin: 0 rem(-7);
+      dt, dd {
+        padding: 0 rem(7);
+      }
+      dt {width: calc(100% / 4);}
+      dd {width: calc(100% / 4 * 3);}
+      ul {margin: 0 rem(-7);}
+      li {
+        padding: 0 rem(7);
+        flex: 0 0 calc(100% / 3);
+      }
+    }
+
+    dl.col6 {
+      margin: 0 rem(-2.5);
+      dt, dd {
+        padding: 0 rem(2.5);
+      }
+      dt {width: calc(100% / 6);}
+      dd {width: calc(100% / 6 * 5);}
+      ul {margin: 0 rem(-2.5);}
+      li {
+        padding: 0 rem(2.5);
+        flex: 0 0 calc(100% / 5);
+      }
+    }
+  }
+
+  &__showing {
+    line-height: 1.55;
+    letter-spacing: -0.02em;
+    word-break: keep-all;
+    padding: rem(30) 0 0;
+
+    dt {
+      @extend .fs13r;
+      margin-bottom: rem(4);
+    }
+
+    dd {
+      @extend .fs13l;
+      margin-left: rem(12);
+      text-indent: rem(-12);
+    }
+
+    p {
+      margin-left: rem(13);
+      text-indent: rem(-13);
+    }
+  }
+
+  .custom-select {
+    margin: 0 #{-$content-space};
+
+    &__title,
+    &__list-item {
+      padding: 0 $content-space;
+    }
+
+    &__title {
+      border: none;
+      height: rem(53);
+    }
+
+    svg {
+      right: rem(26);
+    }
+
+    &__list {
+      margin-top: 1px;
+    }
+
+    &__list-box {
+      border-radius: 0;
+      border-color: $gray7;
+      border-width: 1px 0;
+    }
+
+    &__list-item {
+      border-color: $gray7;
+    }
+
+    &.active .custom-select__title {
+      background: $white;
+    }
+  }
+
+  .secret {
+    margin: rem(25) 0 rem(-9);
+
+    .custom-check__label em {
+      @extend .fs15r;
+    }
+  }
+
+  .picture-text {
+    @extend .fs13r;
+    word-break: keep-all;
+    line-height: 1.45;
+    padding-top: rem(5);
+    margin-bottom: rem(25);
+
+    .txt1 {
+      @extend .fs14m;
+    }
+
+    .txt2 {
+      color: $gray2;
+      margin-top: rem(4);
+    }
+
+    .txt3 {
+      color: $colorPoint2;
+      margin-top: rem(4);
+    }
+  }
+
+  .button__outbox {
+    margin-top: rem(50);
+  }
+
+  .write-tip {
+    text-align: right;
+
+    .button-sm {
+      max-width: rem(120);
+      min-width: rem(108);
+      border-radius: rem(15);
+      letter-spacing: -0.025em;
+      padding: 0 rem(7);
+    }
+  }
+}
+
+/* 만족도 */
+.satisfaction {
+  text-align: center;
+  margin: rem(58) 0 rem(35);
+
+  li > p {
+    @extend .fs15m;
+    margin: 0 0 rem(18);
+    letter-spacing: -0.022em;
+  }
+
+  li + li {
+    margin-top: rem(39);
+  }
+}
+
+
+/* page : 문의하기 */
+.page-question-write {
+  min-height: 100vh;
+  background: $gray8;
+
+  .custom-radio {
+    display: flex;
+    justify-content: space-between;
+    margin: rem(30) 0 rem(5);
+
+    &__item {
+      margin-top: 0 !important;
+    }
+  }
+
+  .form-write__product {
+    &-thumb {
+      flex-basis: rem(70);
+      height: rem(70);
+      margin-right: rem(10);
+      border-radius: rem(5);
+    }
+
+    &-info {
+      padding-top: rem(3);
+
+      .txt1 {
+        @extend .fs17m;
+      }
+
+      .txt2 {
+        @extend .fs13m;
+        margin-top: rem(9);
+      }
+    }
+  }
+}
+
+
+/* page : 솔직후기 작성 */
+.page-candid-review {
+  min-height: 100vh;
+  background: $gray8;
+
+  .form-write__picture {
+    ul + ul {
+      margin-top: rem(15);
+    }
+  }
+}
+
+
+/* page : 후기 작성 */
+.page-comment-write {
+  min-height: 100vh;
+  background: $gray8;
+}

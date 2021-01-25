@@ -1,0 +1,311 @@
+@charset "UTF-8";
+
+.shop-order-info {
+  &__title {
+    @extend .fs13r;
+    background: $gray8;
+    border: solid $gray7;
+    border-width: 1px 0;
+    padding: rem(10) $content-space rem(9);
+    color: $gray3;
+
+    &:first-child {
+      margin-top: -1px;
+    }
+  }
+
+  &__content {
+    padding: 0 $content-space;
+  }
+}
+
+.order-content {
+  padding: rem(21) 0 rem(25);
+
+  dl {
+    position: relative;
+    padding-left: rem(74);
+
+    & + dl {
+      margin-top: rem(12);
+    }
+  }
+
+  dt {
+    @extend .fs13r;
+    position: absolute;
+    left: 0;
+    top: rem(3);
+    color: $gray3;
+  }
+
+  dd {
+    @extend .fs15r;
+    line-height: 1.35;
+  }
+
+  &--price {
+    initial-letter: -0.025em;
+
+    .method {
+      @extend .fs13r;
+      margin: rem(7) 0 rem(19);
+      letter-spacing: -0.03em;
+    }
+
+    dl + dl {
+      margin-top: rem(10);
+    }
+
+    dt {
+      top: rem(5);
+    }
+
+    dd {
+      text-align: right;
+    }
+  }
+
+  &__total {
+    border-top: 1px solid $gray7;
+    padding-top: rem(12);
+    margin-top: rem(11);
+
+    dt {
+      top: rem(7);
+      color: $black;
+      letter-spacing: -0.033em;
+    }
+
+    dd {
+      font-size: rem(17);
+      color: $colorPoint2;
+      letter-spacing: -0.025em;
+    }
+  }
+
+  &__agree {
+    border-top: 1px solid $gray7;
+    padding: rem(21) 0 rem(23);
+    text-align: center;
+  }
+
+  &__coupon {
+    padding: rem(17) 0 rem(20);
+
+    em {
+      font-style: normal;
+    }
+
+    .point-input {
+      display: flex;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      align-items: center;
+
+      > * {
+        flex: 0 1 auto;
+      }
+
+      em {
+        @extend .fs15r;
+        display: inline-block;
+        width: rem(64);
+      }
+
+      span {
+        @extend .fs13r;
+        display: inline-block;
+        text-align: right;
+        width: rem(22);
+        position: relative;
+        top: rem(3);
+      }
+    }
+
+    .save-point {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin: rem(18) 0 rem(8);
+
+      .current {
+        position: relative;
+        top: -1px;
+        margin-right: rem(15);
+
+        span {
+          @extend .fs13r;
+        }
+
+        em {
+          @extend .fs13m;
+          margin-left: rem(5);
+        }
+      }
+    }
+
+    .text {
+      @extend .fs11r;
+      color: $gray3;
+      text-align: right;
+      letter-spacing: -0.02em;
+    }
+  }
+
+  &__address {
+    padding: rem(17) 0 rem(22);
+    line-height: 1.5;
+
+    .address-selected {
+      @extend .fs13r;
+      padding: rem(20) 0 rem(17);
+
+      p + p {
+        margin-top: rem(5);
+      }
+    }
+
+    .address-inputs {
+      padding: rem(20) 0;
+
+      li {
+        position: relative;
+        padding-left: rem(83);
+      }
+
+      .label {
+        @extend .fs15r;
+        position: absolute;
+        left: 0;
+        top: rem(12);
+      }
+
+      .custom-input {
+        margin-bottom: rem(14);
+      }
+
+      .save {
+        text-align: right;
+        margin-top: rem(-4);
+      }
+
+      .zip-code {
+        display: flex;
+
+        &__button {
+          flex: 1 0 rem(68);
+        }
+
+        .custom-input {
+          padding-right: rem(10);
+        }
+
+        button.btBgMain {
+          border-radius: rem($input-radius);
+          height: rem($input-height);
+          line-height: rem($input-height);
+        }
+      }
+    }
+  }
+}
+
+/* page: 주문 */
+.page-order {}
+
+
+/* page: 주문완료 */
+.page-order-complete {}
+
+
+/* page : 주문배송조회 */
+.page-order-delivery {
+  .custom-select {
+    margin: 0 -1px;
+
+    dt, dd {
+      margin-left: auto;
+      max-width: 132px;
+    }
+
+    &__title {
+      @extend .fs14r;
+      border-radius: 0;
+      border-width: 0 0 1px 0;
+      border-color: $gray7;
+      letter-spacing: -0.04em;
+      height: rem($input-order);
+      line-height: rem($input-order);
+
+      svg {
+        right: rem(26);
+      }
+    }
+
+    &__list {
+      left: initial;
+      right: 0;
+      box-shadow: rem(5) rem(5) rem(5) $transparent-color6;
+    }
+
+    &__list-box {
+      max-height: initial;
+      overflow: hidden;
+      border-color: $gray7;
+      border-radius: 0;
+    }
+
+    &__list-item {
+      border-color: $gray7;
+    }
+
+    &.active .custom-select__title {
+      background: $white;
+    }
+  }
+}
+
+.delivery-state {
+  background: $gray8;
+  border: solid $gray7;
+  border-width: 1px 0;
+  margin-top: -1px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: rem(14) 0 rem(13);
+
+  &__step {
+    strong, span {
+      display: block;
+    }
+
+    strong {
+      @extend .fs19b;
+      font-family: $fontNotoSans;
+    }
+
+    span {
+      @extend .fs12m;
+      color: $gray3;
+      margin-top: 9px;
+    }
+  }
+
+  svg {
+    top: rem(2);
+    width: rem(13);
+    height: rem(13);
+    margin: 0 rem(11) 0 rem(13);
+  }
+}
+
+
+/* page : 주문내역 */
+.page-order-history {
+  .delivery-list {
+    padding-top: rem(5);
+  }
+}

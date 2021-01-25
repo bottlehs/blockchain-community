@@ -1,0 +1,196 @@
+@charset "UTF-8";
+
+/* 페이지 */
+.page-sec {
+  position: relative;
+  min-height: 100vh;
+
+  &__top {
+    &.fixed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: $page-fixed-zidx;
+    }
+  }
+
+  &.fixed-head {
+    padding-top: rem($nav-height);
+  }
+
+  &.fixed-head &__top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: $page-fixed-zidx;
+  }
+
+  &.fixed-foot {
+    padding-bottom: $page-fixed-bottom;
+  }
+
+  &.fixed-foot &__bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    Z-index: $page-fixed-zidx;
+    background: $white;
+  }
+}
+
+/* 탭 */
+.tabs {
+  border: solid $gray7;
+  border-width: 1px 0;
+
+  ul {
+    display: flex;
+    padding: 0 rem(14);
+  }
+
+  li {
+    @extend .fs14r;
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+    padding: rem(14) 0;
+
+    &.active {
+      font-weight: $fwB;
+    }
+  }
+}
+
+/* 공통 */
+.thumb {
+  background: $gray7;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  span {
+    display: block;
+    padding-top: 100%;
+    background: 50% 50% no-repeat;
+    background-size: cover;
+  }
+}
+
+/* 따라다니는 버튼 (글쓰기) */
+.floating-write {
+  position: fixed;
+  left: $content-space;
+  bottom: rem(66);
+  z-index: $page-floating;
+}
+.floating-top {
+  position: fixed;
+  bottom: rem(78);
+  right: $content-space;
+  z-index: $page-floating;
+}
+
+/* 리스트 더보기 및 없을 때 */
+.list {
+  &__empty {
+  }
+
+  &__more {
+    @extend .fs15r;
+    display: block;
+    width: 100%;
+    color: $black;
+    text-align: center;
+    padding: rem(14) 0;
+  }
+}
+
+/* 모달팝업 */
+.modal {
+  &__bg {
+    display: none;
+    background: $transparent-color2;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &__inner {
+    position: fixed;
+    left: 0;
+    bottom: -100%;
+    width: 100%;
+    background: $white;
+    border-radius: rem(10) rem(10) 0 0;
+    overflow: hidden;
+    transition: $base-transition;
+    z-index: $page-modal-zidx;
+  }
+
+  &__title,
+  &__content {
+    padding: 0 $content-space;
+  }
+
+  &__title {
+    position: relative;
+    border-bottom: 1px solid $gray7;
+    text-align: center;
+    padding: rem(18) 0 rem(19);
+
+    em {
+      @extend .fs17m;
+    }
+
+    button {
+      position: absolute;
+      top: 50%;
+      right: $content-space;
+      transform: translateY(-50%);
+    }
+  }
+
+  &--opened & {
+    &__bg {
+      display: block;
+    }
+
+    &__inner {
+      bottom: 0;
+    }
+  }
+}
+
+/* 공유 */
+.modal-share {
+  &__buttons {
+    padding: rem(30) rem(6);
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* 레이어 팝업 BG*/
+.popup-bg {
+  display: none;
+  background: $transparent-color2;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  .open & {
+    display: block;
+  }
+}

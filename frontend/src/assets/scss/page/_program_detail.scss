@@ -1,0 +1,183 @@
+@charset "UTF-8";
+
+.page-program {
+}
+
+.program-menu {
+  padding: rem(12) $content-space rem(11);
+
+  ul {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    white-space: nowrap;
+  }
+
+  li + li {
+    margin-left: rem(-4);
+  }
+
+  span {
+    @extend .fs15r;
+    letter-spacing: -0.02em;
+    align-items: center;
+    display: inline-flex;
+    height: rem(32);
+    padding: 0 rem(13);
+    border-radius: rem(16);
+  }
+
+  .active span {
+    background: $gray7;
+    font-weight: 700;
+  }
+}
+
+.program-info {
+  padding: rem(112) $content-space rem(34);
+  background: 50% 0 no-repeat;
+  background-size: contain;
+
+  &__title {
+    @extend .fs22m;
+    line-height: 1.35;
+    margin-bottom: rem(16);
+    letter-spacing: -0.03em;
+  }
+
+  &__detail {
+    position: relative;
+  }
+
+  &__price {
+    line-height: 1.25;
+
+    em, strong {
+      @extend .fs28b;
+      letter-spacing: -0.03em;
+    }
+
+    span {
+      @extend .fs17r;
+      position: relative;
+      color: $gray3;
+      text-decoration: line-through;
+      margin-left: rem(11);
+      top: rem(4);
+    }
+  }
+
+  &__etc {
+    position: absolute;
+    right: 0;
+    bottom: rem(6);
+
+    button + button,
+    svg + svg {
+      margin-left: rem(15);
+    }
+
+    svg {
+      color: #000;
+    }
+  }
+
+  &__showing {
+    @extend .fs14r;
+    margin-top: rem(23);
+
+    li {
+      line-height: 1.25;
+      padding-left: rem(20);
+      position: relative;
+      letter-spacing: -0.02em;
+
+      & + li {
+        margin-top: rem(7);
+      }
+    }
+
+    svg {
+      fill: $colorPoint1;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &__period {
+    @extend .fs14r;
+    margin-top: rem(25);
+    letter-spacing: -0.025em;
+  }
+}
+
+.program-detail {
+  padding: 0 $content-space rem(28);
+  min-height: 300px;
+
+  .faq-list,
+  .shop-review {
+    margin: 0;
+  }
+
+  &__content {
+  }
+}
+
+.program-best-review {
+  padding-top: rem(30);
+
+  &__title {
+    @extend .fs17m;
+    margin: rem(34) 0 rem(18);
+    letter-spacing: -0.025em;
+  }
+
+  &__content {
+    margin: 0 #{-$content-space} rem(52);
+    border-radius: rem(10);
+
+    .slick-list {
+      overflow: visible;
+    }
+    .custom-slider .slick-dots {
+      bottom: rem(-22);
+
+      button {
+        width: rem(6);
+        height: rem(6);
+      }
+    }
+  }
+
+  &__slick {
+    outline: none;
+    padding: 0 $content-space;
+    > div {
+      border-radius: rem(10);
+      border: 1px solid $gray5;
+      padding: rem(16) rem(19);
+      box-shadow: rem(4) rem(4) rem(10) rem(0) $transparent-color6;
+    }
+
+    .shop-review {
+      &__profile {
+        width: rem(30);
+        height: rem(30);
+      }
+
+      &__count {
+        top: 0;
+      }
+    }
+  }
+
+  .star-score {
+    margin-top: rem(9);
+
+    svg {
+      margin-right: rem(6);
+    }
+  }
+}

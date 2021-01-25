@@ -1,0 +1,137 @@
+@charset "UTF-8";
+
+.page-hot-community {
+  .sec-title {
+    @extend .fs19m;
+    margin: rem(55) $content-space 0;
+    border-bottom: 2px solid $gray6;
+    padding-bottom: rem(12);
+    letter-spacing: -0.025em;
+  }
+}
+
+.hot-visual {
+  &__inner {
+    display: block;
+  }
+
+  &__text {
+    margin-top: rem(-31);
+    padding: 0 $content-space;
+
+    .txt1 {
+      @extend .fs23m;
+      letter-spacing: -0.03em;
+    }
+
+    .txt2 {
+      @extend .fs13r;
+      margin-top: rem(12);
+      color: $gray3;
+      line-height: 1.5;
+      letter-spacing: -0.025em;
+    }
+  }
+
+  .slick-dots {
+    position: absolute;
+    top: rem(18);
+    right: $content-space;
+    text-align: right;
+    width: initial;
+    bottom: initial;
+    left: initial;
+  }
+
+  .custom-slider__paging {
+    display: inline-flex;
+    height: rem(26);
+    justify-content: center;
+    align-items: center;
+    padding: 0 rem(12);
+    background: $transparent-color1;
+    border-radius: rem(13);
+  }
+}
+
+.hot-best-list {
+  margin-top: rem(35);
+  padding: 0 $content-space rem(1);
+  overflow: hidden;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: scroll;
+
+  ul {
+    display: flex;
+
+    &:after {
+      content: '';
+      padding-right: rem(25);
+    }
+  }
+
+  li {
+    flex: 1 0 rem(126);
+  }
+
+  li + li {
+    margin-left: rem(15);
+  }
+
+  &__inner {
+    display: block;
+  }
+
+  &__text {
+    @extend .fs14r;
+    margin-top: rem(10);
+    line-height: 1.35;
+    letter-spacing: -0.025em;
+  }
+}
+
+.hot-candid-review {
+  ul {
+    display: flex;
+    margin: rem(20) 0 0;
+    padding: 0 $content-space;
+  }
+
+  li {
+    flex: 1 1 auto;
+    display: flex;
+    border-radius: rem(10);
+    overflow: hidden;
+
+    & + li {
+      margin-left: rem(17);
+    }
+  }
+
+  a, button {
+    display: flex;
+    width: 100%;
+  }
+
+  div {
+    flex: 1 1 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: rem(127);
+    padding-top: rem(2);
+
+    &.before {
+      background: $gray5;
+    }
+
+    &.after {
+      background: $gray7;
+    }
+  }
+}
+
+.hot-godahae {
+  padding-bottom: rem(37);
+}

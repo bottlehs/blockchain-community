@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+.candid-review {
+  margin: 0 $content-space;
+  letter-spacing: -0.03em;
+
+  &__item {
+    padding: rem(20) 0 rem(19);
+    border: solid $gray7;
+    border-width: 1px 0;
+    margin-top: -1px;
+    &.best {
+      padding-top: rem(10);
+    }
+  }
+
+  &__info {
+    position: relative;
+    overflow: hidden;
+    padding-right: rem(123);
+    height: rem(76);
+    display: block;
+  }
+
+  &__txt {
+    @extend .fs15m;
+    @include ellipsis(3, 1.4);
+    padding-top: 1px;
+    word-break: keep-all;
+  }
+
+  &__thumb {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: rem(113);
+    height: rem(76);
+  }
+
+  &__best-thumb {
+    display: flex;
+    border-radius: rem(10);
+    overflow: hidden;
+    li {
+      flex: 1;
+    }
+  }
+
+  &__best-title {
+    @extend .fs17m;
+    @include ellipsis(2, 1.45);
+    margin-top: rem(10);
+  }
+
+  &__best-text {
+    @extend .fs13r;
+    @include ellipsis(3, 1.5);
+    color: $gray3;
+    margin-top: rem(7);
+    margin-bottom: rem(1);
+  }
+
+  &__etc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: rem(14);
+
+    svg + svg,
+    button + button {
+      margin-left: rem(16);
+    }
+
+    span {
+      @extend .fs11m;
+      color: $gray3;
+    }
+  }
+
+  &__item.best & {
+    &__info {
+      padding: 0;
+      height: initial;
+    }
+  }
+}

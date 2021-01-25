@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+$font: 'Noto Sans KR', sans-serif;
+$fontNotoSans: 'Noto Sans';
+$font-url: '//fonts.googleapis.com/css?family=Noto+Sans+KR:200,300,400,500,700&family=Noto+Sans:300,400,500,700&subset=korean';
+$base-font: 16px;
+$line-height: 1;
+$letter-spacing: 0;
+$base-transition: 0.4s;
+$base-padding: 20;
+
+/* color */
+$colorMain1: #6C008B; // main
+$colorPoint1: #AD35CF; // point1
+$colorPoint2: #ff0900; // point2
+$color1: #ff8000;
+$color2: #1a8dff;
+$color3: #3a69c3;
+$color4: #ffb700;
+$color5: #ffcc00;
+
+$black: #000; /* 0 */
+$white: #fff; /* 255 */
+$gray1: #666; /* 102 */
+$gray2: #808080; /* 128 */
+$gray3: #888; /* 136 */
+$gray4: #ccc; /* 204 */
+$gray5: #d1d1d1; /* 209 */
+$gray6: #e5e5e5; /* 229 */
+$gray7: #eee; /* 238 */
+$gray8: #f6f6f6; /* 246 */
+$transparent-color1: rgba(0,0,0,0.3);
+$transparent-color2: rgba(0,0,0,0.5);
+$transparent-color3: rgba(0,0,0,0.4);
+$transparent-color4: rgba(108,0,139,0.3);
+$transparent-color5: rgba(0,0,0,0.6);
+$transparent-color6: rgba(0,0,0,0.1);
+$transparent-color7: rgba(0,0,0,0.15);
+$transparent-color8: rgba(255,255,255,0.5);
+
+/* font-weight */
+$fwB: 700;
+$fwM: 500;
+$fwR: 400;
+$fwS: 200;
+
+/* button */
+$button-size-lg: 50;
+$button-size-lg-radius: 10;
+$button-size-md: 43;
+$button-size-md-radius: 9;
+$button-size-sm: 31;
+$button-size-sm-radius: 5;
+$button-size-ze: 27;
+
+/* icon share */
+$share-size: rem(50);
+$share-url-font-size: rem(14);
+$share-etc-font-size: rem(15);
+
+/* nav */
+$nav-height: 54;
+$nav-padding: 25;
+$nav-side-width: 22;
+$nav-back: -4;
+$nav-title-font: 17;
+$nav-menu-height: 30;
+$nav-menu-font: 15;
+$nav-menu-padding: 13;
+
+/* page */
+$page-fixed-bottom: rem(50);
+$page-fixed-zidx: 1000;
+$page-floating: 999;
+$page-modal-zidx: 1000;
+$page-focus-zidx: 1000;
+
+/* list */
+$content-space: rem(25);
+
+/* input */
+$input-order: 51;
+$input-height: 46;
+$input-padding: 19;
+$input-radius: 6;
+$textarea-radius: 8;
+$textarea-pd: rem(11) rem(19) rem(10);

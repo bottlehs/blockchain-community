@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+.godahae-list {
+  letter-spacing: -0.03em;
+  margin: 0 $content-space;
+
+  &__item {
+    border: solid $gray7;
+    border-width: 1px 0;
+    margin: -1px 0;
+    position: relative;
+    overflow: hidden;
+    padding: rem(16) 0 rem(23);
+
+    &:first-child {
+      border-top-width: 0;
+    }
+  }
+
+  &__thumb {
+    position: relative;
+    float: right;
+    width: rem(70);
+    height: rem(70);
+    margin: rem(4) 0 rem(10) rem(10);
+  }
+
+  &__thumb-count {
+    @extend .fs12r;
+    color: $white;
+    background: $transparent-color5;
+    position: absolute;
+    bottom: rem(5);
+    right: rem(5);
+    padding: rem(2) rem(5) rem(2) rem(4);
+    border-radius: rem(2);
+  }
+
+  &__info {
+    max-height: rem(147);
+    overflow: hidden;
+  }
+
+  &__title {
+    @extend .fs17m;
+    @include ellipsis(2, 1.4);
+    margin-bottom: rem(6);
+  }
+
+  &__txt {
+    @extend .fs13r;
+    @include ellipsis(5, 1.5);
+    color: $gray3;
+    overflow: visible;
+    display: block;
+  }
+
+  &__etc {
+    margin-top: rem(15);
+    text-align: right;
+
+    span, button, a {
+      @extend .fs13r;
+      position: relative;
+    }
+
+    .answer-count {}
+
+    .answer {
+      margin-left: rem(34);
+      &:before {
+        background: $gray6;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: rem(-17);
+        width: 1px;
+        height: rem(16);
+        margin-top: rem(-8);
+      }
+    }
+  }
+}

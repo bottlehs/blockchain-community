@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+.button {
+  white-space: nowrap;
+  line-height: 1.2;
+  border: 1px solid;
+  width: 100%;
+  padding: 0 rem(5);
+
+  &-lg {
+    @extend .fs17m;
+    height: rem($button-size-lg);
+    line-height: rem($button-size-lg - 2);
+
+    &--radius {
+      border-radius: rem($button-size-lg-radius);
+    }
+  }
+
+  &-md {
+    @extend .fs15r;
+    height: rem($button-size-md);
+    line-height: rem($button-size-md - 2);
+
+    &--radius {
+      border-radius: rem($button-size-md-radius);
+    }
+  }
+
+  &-sm {
+    @extend .fs13r;
+    height: rem($button-size-sm);
+    line-height: rem($button-size-sm - 2);
+
+    &--radius {
+      border-radius: rem($button-size-sm-radius);
+    }
+  }
+
+  &-ze {
+    @extend .fs15r;
+    height: rem($button-size-ze);
+    line-height: rem($button-size-ze - 1);
+    width: rem(74);
+  }
+}
+
+.btBgMain {
+  border: 1px solid $colorMain1;
+  background: $colorMain1;
+  color: $white;
+  &.button-lg {
+    font-weight: $fwS;
+  }
+}
+
+.btBgPoint {
+  border-color: $colorPoint1;
+  background: $colorPoint1;
+  color: $white;
+}
+
+.btBgGray {
+  border-color: $gray3;
+  background: $gray3;
+  color: $white;
+  &.button-lg {
+    font-weight: $fwS;
+  }
+}
+
+.btLineMain {
+  border-color: $colorMain1;
+  color: $colorMain1;
+}
+
+.btLineGray {
+  border-color: $gray5;
+  color: $black;
+  background: $white;
+}
+
+.btLineGrayM {
+  border-color: $gray5;
+  background: $white;
+  color: $colorMain1;
+}
+
+.button__outbox {
+  &-row {
+    display: flex;
+    overflow: hidden;
+    line-height: 1;
+  }
+
+  &-col {
+    flex: 1 0 auto;
+  }
+
+  &-col + &-col {
+    padding-left: 1px;
+  }
+
+  &.is-padding & {
+    &-row {
+      margin: 0 rem(-7);
+    }
+
+    &-col {
+      padding: 0 rem(7);
+    }
+  }
+
+  &.limit {
+    .button {
+      max-width: rem(152);
+      margin: rem(5);
+    }
+  }
+
+  &.limit & {
+    &-row {
+      display: block;
+      margin: rem(-5);
+    }
+  }
+}

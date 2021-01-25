@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.page-write-tip {
+  .nav-bar {
+    border: none;
+    background: transparent;
+  }
+}
+
+.write-tip-guide {
+  padding: rem(21) $content-space;
+  letter-spacing: -0.025em;
+
+  dt {
+    @extend .fs22b;
+    margin-bottom: rem(30);
+  }
+
+  dd {
+    @extend .fs15r;
+    line-height: 1.5;
+    margin-bottom: rem(25);
+    word-break: keep-all;
+  }
+
+  ul {
+    margin-top: rem(-1);
+  }
+
+  li {
+    line-height: 1.6;
+    margin-left: rem(15);
+    text-indent: rem(-15);
+  }
+
+  .point {
+    color: $colorPoint2;
+    font-weight: $fwB;
+  }
+}

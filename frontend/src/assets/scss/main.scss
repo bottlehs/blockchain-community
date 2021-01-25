@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+@import 'global/function';
+@import 'global/variables';
+@import 'global/mixins';
+
+@import 'base/reset';
+@import 'base/typography';
+
+/* ui */
+@import 'ui/button';
+@import 'ui/nav';
+@import 'ui/calendar';
+@import 'ui/inputs';
+@import 'ui/slider'; // 슬라이드
+@import 'ui/quantity'; // 수량
+@import 'ui/star_score'; // 별점
+@import 'ui/icon'; // 별점
+
+/* 화면 구성 및 공통 */
+@import 'common';
+
+/* 리스트 */
+@import 'list/CandidReview'; //솔직후기
+@import 'list/Godahae'; // 고다해
+@import 'list/ShopReview'; // 쇼핑 후기
+@import 'list/FAQ'; // FAQ
+@import 'list/Question'; // 문의
+@import 'list/Order'; // 주문
+@import 'list/Delivery'; // 배송
+
+/* page */
+@import 'page/shop_main'; // shopping 메인
+@import 'page/shop_detail'; // shopping 상품상세
+@import 'page/shop_cart'; // 장바구니
+@import 'page/shop_wish'; // 찜한상품
+@import 'page/program_main'; // 프로그램 메인
+@import 'page/program_detail'; // 프로그램 상세
+@import 'page/order'; // 주문하기, 주문완료, 주문배송조회, 주문내역
+@import 'page/order_delivery_detail'; // 배송조회
+@import 'page/community_main'; // 핫커뮤니티
+@import 'page/community_detail'; // 커뮤니티 상세
+@import 'page/godahae'; // 고다해 관련
+
+@import 'page/calorie_calendar'; // 달력
+@import 'page/tape_line'; // 줄자
+
+@import 'page/etc_tip'; // 작성 팁
+@import 'page/etc_photo_add'; // 고다해 관련
+@import 'page/etc_declaration'; // 신고하기
+@import 'page/comment'; // 댓글
+@import 'page/write'; // 작성하기
+
+
+

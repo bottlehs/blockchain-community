@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+@mixin fontWeightSet($size) {
+  &l {
+    font-size: rem($size);
+    @if $size > 12 {
+      font-weight: 300;
+    } @else {
+      font-weight: 200;
+    }
+  }
+  &r {
+    font-size: rem($size);
+    @if $size > 12 {
+      font-weight: 400;
+    } @else {
+      font-weight: 300;
+    }
+  }
+  &m {
+    font-size: rem($size);
+    @if $size > 12 {
+      font-weight: 500;
+    } @else {
+      font-weight: 400;
+    }
+  }
+  &b {
+    font-size: rem($size);
+    font-weight: 700;
+  }
+}
+
+@for $i from 10 through 23 {
+  .fs#{$i} {
+    @include fontWeightSet($i);
+  }
+}
+
+.fs25 {
+  @include fontWeightSet(25);
+}
+
+.fs28 {
+  @include fontWeightSet(28);
+}
+
+.fs34 {
+  @include fontWeightSet(34);
+}
+
+.fs47 {
+  @include fontWeightSet(47);
+}

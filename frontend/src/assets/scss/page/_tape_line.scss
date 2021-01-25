@@ -1,0 +1,443 @@
+@charset "UTF-8";
+
+.page-tape-line {
+  .page-sec__top {
+    .nav-bar {
+      background: transparent;
+      border-bottom-width: 0;
+    }
+  }
+}
+
+.tape-top {
+  padding: rem(18) $content-space rem(24);
+
+  &__title {
+    @extend .fs20b;
+
+  }
+
+  &__date {
+    @extend .fs12r;
+    color: $gray3;
+    margin-top: rem(10);
+  }
+
+  &__text {
+    @extend .fs14r;
+    line-height: 1.5;
+    letter-spacing: -0.025em;
+    margin-top: rem(22);
+  }
+}
+
+.simple-analysis {
+  background: $gray8;
+  padding: rem(27) $content-space rem(22);
+
+  &__goal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 rem(-3) rem(31);
+  }
+
+  &__goal-text {
+    padding-bottom: rem(5);
+
+    .txt1 {
+      @extend .fs28r;
+      color: $colorMain1;
+
+      strong {
+        @extend .fs47b;
+        margin-left: rem(3);
+        letter-spacing: -0.03em;
+      }
+    }
+
+    .txt2 {
+      @extend .fs15r;
+      position: relative;
+      top: rem(2);
+      margin-left: rem(9);
+    }
+  }
+
+  &__goal-button {
+    text-align: right;
+
+    a, button {
+      @extend .fs15m;
+      letter-spacing: -0.025em;
+    }
+
+    p + p {
+      margin-top: rem(20);
+    }
+
+    svg {
+      margin-left: rem(7);
+    }
+  }
+
+  ul {
+    padding: 0 rem(10) 0 rem(14);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  li {
+    text-align: center;
+
+    p {
+      display: flex;
+      height: rem(50);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: rem(6);
+    }
+
+    span {
+      @extend .fs12r;
+      color: $gray3;
+      letter-spacing: -0.025em;
+    }
+
+    strong {
+      @extend .fs18b;
+      display: block;
+      margin: 0 0 rem(7);
+      letter-spacing: -0.025em;
+    }
+
+    em {
+      @extend .fs12r;
+    }
+  }
+}
+
+.tape-memo {
+  margin: rem(40) $content-space 0;
+  padding: rem(35) 0 0;
+  border-top: 1px solid $gray7;
+
+  ul {
+    position: relative;
+    border-bottom: 1px solid $gray7;
+    margin-top: rem(12);
+
+    &:before {
+      content: '';
+      width: 1px;
+      background: $gray7;
+      position: absolute;
+      top: rem(15);
+      bottom: rem(65);
+      left: rem(5);
+    }
+  }
+
+  li {
+    position: relative;
+    padding: rem(13) 0 rem(15);
+    margin-left: rem(22);
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: rem(14);
+      left: rem(-22);
+      width: rem(11);
+      height: rem(11);
+      background: $colorMain1;
+      border-radius: 100%;
+    }
+  }
+
+  li + li {
+    border-top: 1px solid $gray7;
+  }
+
+  &__title {
+    @extend .fs19b;
+  }
+
+  &__date {
+    @extend .fs12r;
+    color: $gray3;
+    margin-bottom: rem(8);
+  }
+
+  &__content {
+    p {
+      @include ellipsis(2, 1.5);
+      @extend .fs15r;
+      letter-spacing: -0.025em;
+
+      &.empty {
+        opacity: 0.4;
+      }
+    }
+  }
+
+  &__thumb {
+    float: right;
+    display: block;
+    width: rem(44);
+    background: 50% 50% no-repeat;
+    background-size: cover;
+    margin-left: rem(10);
+
+    &:before {
+      content: '';
+      display: block;
+      padding-top: 100%;
+    }
+  }
+}
+
+.diagnostic-select {
+  margin: $content-space;
+}
+
+.diagnostic {
+  margin: 0 $content-space;
+
+  &__result {
+    border-bottom: 1px solid $gray8;
+    padding-bottom: rem(40);
+    margin: 0 0 rem(-5);
+  }
+
+  &__result-content,
+  &__content {
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      width: rem(36);
+      height: rem(36);
+      position: absolute;
+      background-size: cover;
+    }
+
+    .state {
+      letter-spacing: -0.025em;
+
+      strong {
+        @extend .fs34b;
+      }
+
+      span {
+        @extend .fs19r;
+        position: relative;
+        margin-left: rem(2);
+        top: rem(-1);
+      }
+    }
+
+    .label {
+      @extend .fs13r;
+      letter-spacing: -0.025em;
+      color: $gray3;
+      margin-top: rem(10);
+    }
+  }
+
+  &__result-content {
+    position: relative;
+    padding: 0 rem(40) 0 0;
+    margin: rem(39) 0 rem(33);
+
+    &:after {
+      top: 0;
+      right: 0;
+      background-image: url('../../images/tape/tape_graph1.png');
+    }
+
+    .title {
+      @extend .fs17b;
+      color: $gray3;
+      letter-spacing: -0.025em;
+      margin-bottom: rem(13);
+    }
+
+    .text {
+      @extend .fs15r;
+      line-height: 1.55;
+      letter-spacing: -0.025em;
+      margin-top: rem(20);
+      word-break: keep-all;
+      padding-right: rem(20);
+
+      strong {
+        font-weight: $fwB;
+      }
+    }
+  }
+
+  &__content {
+    position: relative;
+    padding: 0 rem(40) 0 rem(45);
+    margin: rem(39) 0 rem(18);
+
+    &:before {
+      top: 0;
+      left: 0;
+    }
+
+    &:after {
+      top: rem(5);
+      right: 0;
+      background-image: url('../../images/tape/tape_graph2.png');
+    }
+
+    &.weight:before {
+      background-image: url('../../images/tape/tape_weight.png');
+    }
+
+    &.water:before {
+      background-image: url('../../images/tape/tape_water.png');
+    }
+
+    &.sleep:before {
+      background-image: url('../../images/tape/tape_sleep.png');
+    }
+
+    &.sports:before {
+      background-image: url('../../images/tape/tape_sports.png');
+    }
+  }
+
+  &__tip {
+    background: $gray8;
+    padding: rem(15) rem(20) rem(19);
+    border-radius: rem(10);
+
+    .label {
+      @extend .fs12b;
+      display: inline-flex;
+      align-items: center;
+      background: $colorPoint1;
+      height: rem(21);
+      border-radius: rem(10);
+      padding: 0 rem(9) rem(1);
+      color: $white;
+      margin-left: rem(-5);
+    }
+
+    .text {
+      @extend .fs13r;
+      margin-top: rem(10);
+      line-height: 1.6;
+      letter-spacing: -0.025em;
+
+      strong {
+        font-weight: $fwB;
+      }
+    }
+
+    .total-text {
+      position: relative;
+      padding-left: rem(21);
+      margin-top: rem(12);
+
+      &:nth-of-type(1) {
+        margin-top: rem(14);
+      }
+
+      &:before {
+        content: '';
+        display: block;
+        width: rem(22);
+        height: rem(23);
+        position: absolute;
+        left: rem(-5);
+        top: 0;
+        background-size: contain;
+      }
+
+      em {
+        @extend .fs14b;
+
+      }
+
+      .text {
+        margin-top: rem(6);
+      }
+
+      &.good:before {
+        background-image: url('../../images/tape/tip_good.png');
+      }
+
+      &.bad:before {
+        background-image: url('../../images/tape/tip_bad.png');
+      }
+    }
+  }
+
+  &__tag {
+    margin: rem(-7) 0 rem(15);
+
+    span {
+      @extend .fs13r;
+      display: inline-flex;
+      height: rem(28);
+      border-radius: rem(14);
+      align-items: center;
+      background: $gray8;
+      margin: rem(5) rem(5) 0 0;
+      padding: 0 rem(13) rem(1) rem(12);
+      letter-spacing: -0.025em;
+    }
+
+    em {
+      @extend .fs12m;
+      margin-left: rem(3);
+    }
+  }
+
+  &__nutrient {
+    display: flex;
+    margin: 0 rem(10) rem(36);
+
+    div {
+      flex: 1;
+      position: relative;
+      padding-left: rem(27);
+      letter-spacing: -0.025em;
+
+      &:before {
+        content: '';
+        display: block;
+        width: rem(20);
+        height: rem(20);
+        position: absolute;
+        background: 50% no-repeat;
+        background-size: contain;
+        top: rem(-1);
+        left: 0;
+      }
+    }
+
+    strong {
+      @extend .fs17b;
+    }
+
+    p {
+      @extend .fs13r;
+      line-height: 1.45;
+      margin-top: rem(10);
+    }
+
+    .plus:before {
+      background-image: url('../../images/tape/plus.png');
+    }
+
+    .minus:before {
+      background-image: url('../../images/tape/minus.png');
+    }
+  }
+}
