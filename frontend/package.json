@@ -20,7 +20,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook",
+    "build-storybook": "build-storybook -c .storybook -o .out"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,7 +47,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "prettier": "^2.0.2",
     "eslint-config-airbnb": "^18.1.0",
-    "@storybook/addon-actions": "^6.1.15",
+    "@storybook/addon-actions": "^5.3.17",
     "@storybook/addon-cssresources": "^5.3.18",
     "@storybook/addon-design-assets": "^5.3.18",
     "@storybook/addon-docs": "^5.3.17",
