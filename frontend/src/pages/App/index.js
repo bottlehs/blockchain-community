@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 import './style.css';
 // BrowserRouter as Router
 import Home from '../Home';
@@ -8,7 +8,7 @@ import Terms from '../Terms';
 function App() {
   return (
 
-<Router>
+<BrowserRouter>
     <div>
     <h1>Block Chain Community</h1>
       <nav>
@@ -21,7 +21,7 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route path="/about" component={Terms} />
     </div>
-</Router>
+</BrowserRouter>
   );
 }
 
