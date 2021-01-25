@@ -32,6 +32,7 @@ exports.create = (req, res, next) => {
     name: req.body.name,
     backgroundColor: req.body.backgroundColor,
     icon: req.body.icon,
+    ipAddress: req.headers["x-forwarded-for"] || req.connection.remoteAddress,
   };
 
   // Save Category in the database

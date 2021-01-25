@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+.page-wish-list {}
+
+.wish-list {
+  padding: rem(20) $content-space;
+  border-top: 1px solid $gray7;
+  margin-top: -1px;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: rem(-21) rem(-6) 0;
+  }
+
+  li {
+    width: 33.3333%;
+    padding: 0 rem(6);
+    letter-spacing: -0.03em;
+    line-height: 1.35;
+    margin-top: rem(21);
+  }
+
+  &__thumb {
+    position: relative;
+    button, a {
+      position: absolute;
+      bottom: rem(5);
+      right: rem(5);
+      z-index: 2;
+    }
+  }
+
+  &__brand {
+    @extend .fs12m;
+    color: $gray3;
+    margin-top: rem(6);
+  }
+
+  &__title {
+    @extend .fs14m;
+    margin: rem(2) 0 rem(1);
+  }
+
+  &__price {
+    .cost {
+      @extend .fs12m;
+      text-decoration: line-through;
+      color: $gray4;
+    }
+
+    .sale-price {
+      margin-top: rem(-1);
+    }
+
+    .sale {
+      @extend .fs13m;
+      color: $colorPoint2;
+      margin-right: rem(5);
+    }
+
+    .price {
+      @extend .fs17m;
+    }
+  }
+}

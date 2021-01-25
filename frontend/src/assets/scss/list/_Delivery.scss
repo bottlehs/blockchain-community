@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+.delivery-list {
+  $thumb: 70;
+
+  &__items {}
+
+  &__items-wrap {
+    border: solid $gray7;
+    border-width: 1px 0;
+    margin: -1px 0;
+  }
+
+  &__items-title {
+    position: relative;
+    margin: rem(19) $content-space rem(3);
+
+    .date {
+      @extend .fs15m;
+    }
+
+    .arrow-link {
+      position: absolute;
+      top: rem(-1);
+      right: rem(-3);
+    }
+  }
+
+  &__thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: rem($thumb);
+    height: rem($thumb);
+  }
+
+  &__info {
+    position: relative;
+    padding-left: rem($thumb + 10);
+    min-height: rem($thumb);
+  }
+
+  &__item {
+    margin: 0 $content-space;
+
+    li {
+      position: relative;
+      padding: rem(15) 0 rem(22);
+    }
+
+    li + li {
+      border-top: 1px solid $gray7;
+    }
+  }
+
+  &__title {
+    @extend .fs15m;
+    word-break: keep-all;
+    line-height: 1.3;
+    padding-top: rem(2);
+    letter-spacing: -0.05em;
+    @include ellipsis;
+  }
+
+  &__option {
+    @extend .fs13r;
+    color: $gray3;
+    line-height: 1.35;
+    margin-top: rem(7);
+  }
+
+  &__price {
+    @extend .fs13r;
+    margin-top: rem(7);
+  }
+
+  &__etc {
+    margin-top: rem(12);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    svg {
+      margin-left: rem(5);
+    }
+
+    .question {
+      @extend .fs13m;
+
+      svg {
+        top: 1px;
+      }
+    }
+
+    .status {
+      @extend .fs15m;
+      letter-spacing: -0.055em;
+
+      button, a {
+        @extend .fs15m;
+        letter-spacing: -0.055em;
+      }
+
+      em {
+        color: $colorMain1;
+      }
+    }
+
+    .status.pay-finished {
+      em {
+        color: $black;
+      }
+    }
+  }
+
+  &__button {
+    display: flex;
+    margin: rem(14) rem(-6.5) rem(3);
+
+    > span {
+      flex: 1;
+      padding: 0 rem(6.5);
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+.page-declaration {
+}
+
+.declaration {
+  padding: rem(19) $content-space rem(30);
+
+  &__showing {
+    margin-top: rem(43);
+    dl {
+      margin-right: rem(-10);
+      word-break: keep-all;
+    }
+
+    dt {
+      @extend .fs17m;
+      margin-bottom: rem(9);
+      letter-spacing: -0.026em;
+    }
+
+    dd {
+      @extend .fs13r;
+      line-height: 1.55;
+      letter-spacing: -0.024em;
+
+      & + dd {
+        margin-top: rem(14);
+      }
+    }
+  }
+
+  &__writer {
+    margin-bottom: rem(20);
+    padding-left: rem(5);
+
+    span {
+      @extend .fs14m;
+      color: $gray2;
+      margin-right: rem(13);
+    }
+
+    strong {
+      @extend .fs15m;
+      margin-right: rem(6);
+      position: relative;
+      top: rem(-1);
+    }
+
+    em {
+      @extend .fs10m;
+      color: $gray3;
+      position: relative;
+      top: rem(1);
+    }
+  }
+
+  &__reason {
+    margin-top: rem(17);
+
+    .title {
+      @extend .fs17m;
+      letter-spacing: -0.026em;
+    }
+
+    .description {
+      @extend .fs13r;
+      line-height: 1.55;
+      letter-spacing: -0.028em;
+      margin: rem(14) 0 rem(23);
+    }
+  }
+
+  .custom-radio {
+    margin-bottom: rem(15);
+  }
+
+  .button__outbox {
+    margin-top: rem(49);
+  }
+}

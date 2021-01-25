@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+.quantity-box {
+  display: inline-flex;
+  width: rem(79);
+
+  button, input {
+    border: 1px solid $gray5;
+    background: $white;
+    flex: 1 0 auto;
+    height: rem($button-size-ze);
+    line-height: rem($button-size-ze);
+    text-align: center;
+  }
+
+  button {
+    width: rem(27);
+  }
+
+  input {
+    @extend .fs15r;
+    width: 100%;
+  }
+
+  &__input {
+    margin: 0 -1px;
+  }
+}

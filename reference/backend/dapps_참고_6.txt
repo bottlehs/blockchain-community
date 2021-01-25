@@ -4,3 +4,7 @@ token_contract: "Token Contract"
 token_logo: "image/dapp/ac4658dfcb8f4298a7fe74f4f5d8a3d9.blob"
 token_name: "Ticker of your token"
 token_ticker: "Ticker of your token"
+
+
+<div data-v-5fa531b0="" class="single-choice-box chain"><div data-v-5fa531b0="" class="choice first valid"><!----> <svg data-v-5fa531b0="" aria-hidden="true" class="svg-icon" viewBox="0 0 12 12" style="width: 12px; height: 12px;"><use xlink:href="#icon-checkbox_checked"></use></svg> <div data-v-5fa531b0="" class="text">
+

@@ -6,98 +6,195 @@ const Pagination = require("../utils/pagination");
 // Create and Save a new Posts
 exports.create = (req, res, next) => {
   // Validate request
+  if (!req.body.categoriesId) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  } else {
+    // Categories ID 유무 체크
+    const Category = db.categories;
+    Category.findByPk(req.body.categoriesId)
+      .then((data) => {
+        if (!data) {
+          res.status(400).send({
+            message: "Content can not be empty!",
+          });
+          return;
+        }
+      })
+      .catch((err) => {
+        res.status(400).send({
+          message: "Content can not be empty!",
+        });
+        return;
+      });
+  }
+  if (!req.body.isOwner) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  }
+  if (!req.body.contactEmail) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  }
+  if (!req.body.logo) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  }
   if (!req.body.name) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
-
-  if (!req.body.categoriesId) {
-    res.status(400).send({
-      message: "Content can not be empty!",
-    });
-    return;
-  }  
-
-  if (!req.body.isOwner) {
-    res.status(400).send({
-      message: "Content can not be empty!",
-    });
-    return;
-  }  
-
-  if (!req.body.contactEmail) {
-    res.status(400).send({
-      message: "Content can not be empty!",
-    });
-    return;
-  }  
-
-  if (!req.body.logo) {
-    res.status(400).send({
-      message: "Content can not be empty!",
-    });
-    return;
-  }  
-
-  if (!req.body.name) {
-    res.status(400).send({
-      message: "Content can not be empty!",
-    });
-    return;
-  }  
-
   if (!req.body.url) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
-  }  
-
+  }
   if (!req.body.images) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
-  }  
-
+  }
   if (!req.body.recommendTags) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
-  }  
-
+  }
   if (!req.body.expectedMainnetTime) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
-  }  
-
+  }
+  if (!req.body.status) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  }      
   if (!req.body.state) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
-  }  
-
+  }
   if (!req.body.abstract) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
-  }  
-
+  }
   if (!req.body.description) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
-  }    
-
+  }
   if (!req.body.articleLink) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  }
+  if (!req.body.hasAffiliateLink) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  }
+  if (!req.body.affiliateLink) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  }
+  if (!req.body.onChain) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  }
+  if (!req.body.chainsIds) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  } else {
+    /**
+     * TODO : Chains ID 유무 체크
+     */
+  }
+  if (!req.body.address) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  }        
+  if (!req.body.hasToken) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  } 
+  if (!req.body.tokenChainsId) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  } else {
+    /**
+     * TODO : Chains ID 유무 체크
+     */
+  }
+  if (!req.body.tokenCoingeckoLink) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  }
+  if (!req.body.tokenContract) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  }
+  if (!req.body.tokenLogo) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  }
+  if (!req.body.tokenName) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  }
+  if (!req.body.tokenTicker) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  }
+  if (!req.body.decimal) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  }
+  if (!req.body.decimal) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
@@ -116,8 +213,24 @@ exports.create = (req, res, next) => {
     images: req.body.images,
     recommendTags: req.body.recommendTags,
     expectedMainnetTime: req.body.expectedMainnetTime,
+    status: req.body.status,
     state: req.body.state,
+    abstract: req.body.abstract,
+    description: req.body.description,
     articleLink: req.body.articleLink,
+    hasAffiliateLink: req.body.hasAffiliateLink,
+    affiliateLink: req.body.affiliateLink,
+    onChain: req.body.onChain,
+    chainsIds: req.body.chainsIds,
+    address: req.body.address,
+    hasToken: req.body.hasToken,
+    tokenChainsId: req.body.tokenChainsId,
+    tokenCoingeckoLink: req.body.tokenCoingeckoLink,
+    tokenContract: req.body.tokenContract,
+    tokenLogo: req.body.tokenLogo,
+    tokenName: req.body.tokenName,
+    tokenTicker: req.body.tokenTicker,
+    decimal: req.body.decimal,
     ipAddress: req.headers["x-forwarded-for"] || req.connection.remoteAddress,
   };
 

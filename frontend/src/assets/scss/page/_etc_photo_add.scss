@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+/* 사진 첨부 */
+.page-photo-add {
+  .photo-upload {
+    @extend .fs15m;
+    position: absolute;
+    right: 0;
+    color: $colorPoint1;
+    white-space: nowrap;
+  }
+}
+
+.photo-add {
+  ul {
+    overflow: hidden;
+    margin: rem(-3) 0 0 rem(-3);
+  }
+
+  li {
+    position: relative;
+    float: left;
+    width: calc(100% / 3);
+    padding: rem(3) 0 0 rem(3);
+    overflow: hidden;
+
+    &:before {
+      content: '';
+      display: block;
+      padding-top: 100%;
+      background: $gray7;
+    }
+  }
+
+  &__camera {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: rem(39);
+    }
+  }
+
+  &__box {
+    position: absolute;
+    top: rem(3);
+    left: rem(3);
+    right: 0;
+    bottom: 0;
+  }
+
+  &__thumb {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    height: 100%;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  &__selected-num {
+    @extend .fs17b;
+    position: absolute;
+    top: rem(9);
+    right: rem(9);
+    z-index: 3;
+    font-family: $fontNotoSans;
+    display: inline-flex;
+    width: rem(26);
+    height: rem(26);
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    border-radius: 100%;
+    background: $colorPoint1;
+  }
+
+  .active &__thumb {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 3px solid $colorPoint1;
+      background: $transparent-color8;
+      z-index: 2;
+    }
+  }
+}

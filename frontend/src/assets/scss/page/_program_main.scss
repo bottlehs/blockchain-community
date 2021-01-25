@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+.page-program-main {
+  padding: 0;
+  background: $gray8;
+
+  .page-sec__top {
+    top: rem(4);
+
+    .nav-bar {
+      background: transparent;
+      border-bottom-width: 0;
+    }
+  }
+
+  .sec-title {
+    @extend .fs19b;
+    letter-spacing: -0.025em;
+    margin: rem(45) 0 rem(14);
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.health-secretary {
+  background: $color5;
+  padding: rem(21) 0 rem(25) $content-space;
+
+  &__title {
+    strong {
+      @extend .fs23b;
+      letter-spacing: -0.025em;
+    }
+
+    p {
+      @extend .fs13r;
+      margin-top: rem(12);
+      color: $transparent-color5;
+      letter-spacing: -0.022em;
+      line-height: 1.5;
+    }
+  }
+
+  &__content {
+    position: relative;
+    background: $white 0 0 no-repeat;
+    background-size: cover;
+    border-radius: rem(18) 0 0 rem(18);
+    padding: rem(21) 0 0 rem(25);
+    height: rem(228);
+    margin-top: rem(25);
+    overflow: hidden;
+
+    .txt1 {
+      @extend .fs21b;
+      color: $colorMain1;
+      line-height: 1.4;
+      letter-spacing: -0.03em;
+    }
+
+    .txt2 {
+      @extend .fs13r;
+      line-height: 1.55;
+      margin-top: rem(8);
+      letter-spacing: -0.025em;
+    }
+
+    .txt3 {
+      @extend .fs13r;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      height: rem(24);
+      margin-top: rem(14);
+      background: $colorMain1;
+      color: $white;
+      padding: 0 rem(11) rem(1);
+      border-radius: rem(12);
+      letter-spacing: -0.025em;
+      margin-left: rem(-4);
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+  }
+}
+
+.health-info {
+  padding: rem(45) $content-space rem(39);
+
+  li {
+    background: $white 100% 50% no-repeat;
+    background-size: contain;
+    box-shadow: 0 rem(4) rem(12) $transparent-color6;
+    border-radius: rem(10);
+
+    .txt1 {
+      @extend .fs16b;
+      line-height: 1.5;
+      letter-spacing: -0.033em;
+    }
+
+    .txt2 {
+      @extend .fs12r;
+      line-height: 1.4;
+      letter-spacing: -0.025em;
+    }
+  }
+
+  &__program {
+    li + li {
+      margin-top: rem(20);
+    }
+
+    li {
+      padding: rem(15) rem(20) 0;
+      height: rem(127);
+    }
+
+    .txt2 {
+      margin-top: rem(11);
+    }
+  }
+
+  &__mission {
+    display: flex;
+    margin: 0 rem(-7.5);
+
+    li {
+      flex: 1;
+      margin: 0 rem(7.5);
+      padding: rem(10) rem(15);
+      height: rem(174);
+    }
+
+    .txt2 {
+      margin-top: rem(6);
+    }
+  }
+}

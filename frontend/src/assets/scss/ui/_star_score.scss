@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+.star-score {
+
+  svg {
+    margin-right: rem(5);
+  }
+
+  button {
+    margin: 0 rem(6);
+    svg {
+      margin-right: 0;
+    }
+  }
+
+  &__box {
+    text-align: center;
+    margin: rem(43) 0 rem(15);
+  }
+
+  &__rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: rem(18) 0 0;
+    button {
+      margin: 0 rem(6);
+    }
+  }
+
+  &__title {
+    @extend .fs14m;
+  }
+
+  &__text {
+    @extend .fs15r;
+    margin-top: rem(16);
+  }
+}

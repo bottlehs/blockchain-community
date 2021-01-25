@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+@mixin ellipsis($line-cnt: 1, $line-height: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  word-break: keep-all;
+  @if $line-cnt > 1 {
+    -webkit-line-clamp: $line-cnt; /* 라인수 */
+    -webkit-box-orient: vertical;
+    line-height: $line-height;
+    max-height: $line-height * $line-cnt * 1em;
+  } @else {
+    white-space: nowrap;
+    word-wrap: normal;
+  }
+}

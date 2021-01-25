@@ -1,0 +1,207 @@
+@charset "UTF-8";
+
+/* page: 고다해 메인 */
+.page-godahae-main {
+  .nav-bar {
+    border-color: $gray8;
+  }
+
+  .list__more {
+    font-weight: $fwR;
+    margin-bottom: rem(22);
+  }
+
+  .godahae-list {
+    padding-bottom: rem(25);
+  }
+}
+
+/* page: 고다해 솔직후기 */
+.page-godahae-candid {
+  &.is-top .page-sec__top {
+    .nav-bar {
+      border-bottom-width: 0;
+    }
+  }
+}
+
+/* page: 고다해 해쉬태그 */
+.page-godahae-hashtag {
+}
+
+/* page: 고다해 상세 */
+.page-godahae-detail {
+  .form-write {
+    border: solid $gray7;
+    border-width: 1px 0;
+    padding: rem(20) $content-space rem(30);
+
+    .button__outbox {
+      margin-top: rem(35);
+    }
+
+    .secret {
+      margin-top: rem(27);
+    }
+  }
+}
+
+/* 답변 작성 폼 */
+.answer-write-text {
+  display: flex;
+  justify-content: space-between;
+
+  dl {
+    margin-bottom: rem(18);
+  }
+
+  dt {
+    @extend .fs15m;
+    margin-bottom: rem(9);
+  }
+
+  dd {
+    @extend .fs13r;
+    line-height: 1.4;
+
+    em {
+      font-weight: $fwB;
+    }
+  }
+
+  .write-tip {
+    position: relative;
+    top: rem(-4);
+  }
+}
+
+.gdh-detail-content {
+  padding: rem(22) $content-space rem(10);
+  letter-spacing: -0.025em;
+  .gdh-title {
+    @extend .fs20m;
+    line-height: 1.2;
+    margin-bottom: rem(22);
+  }
+  .gdh-text {
+    @extend .fs15r;
+    white-space: pre-line;
+    line-height: 1.5;
+    margin-bottom: rem(25);
+  }
+  .gdh-hashtag {
+    @extend .fs13r;
+    color: $colorMain1;
+    margin-left: rem(-11);
+    span {
+      margin-left: rem(11);
+      display: inline-block;
+    }
+  }
+  .gdh-images {
+    padding-top: rem(13);
+    img {
+      width: 1005;
+      margin-top: rem(20);
+    }
+  }
+  .gdh-profile {
+    margin-top: rem(40);
+    border-top: 1px solid $gray7;
+  }
+}
+
+.gdh-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: rem(10) 0;
+
+  button, a {
+    @extend .fs12r;
+    margin-left: auto;
+    color: $gray3;
+  }
+
+  &__thumb {
+    width: rem(36);
+    height: rem(36);
+    border-radius: 100%;
+    overflow: hidden;
+    margin-right: rem(7);
+  }
+
+  &__content {
+    p {
+      position: relative;
+      letter-spacing: -0.025em;
+    }
+    .name {
+      @extend .fs13m;
+      top: rem(-2);
+      margin: 0 0 rem(1);
+    }
+
+    .title {
+      @extend .fs15m;
+      top: rem(3);
+      margin: 0 0 rem(3);
+    }
+
+    .rating {
+      @extend .fs10m;
+      color: $gray3;
+    }
+  }
+}
+
+.answer-list {
+  padding: 0 $content-space rem(22);
+
+  li {
+    border: solid $gray7;
+    border-width: 1px 0;
+    margin-top: -1px;
+    padding: rem(10) 0 rem(20);
+  }
+
+  &__text {
+    @extend .fs14r;
+    line-height: 1.45;
+    letter-spacing: -0.025em;
+    margin-top: rem(10);
+  }
+
+  &__images {
+    margin-top: rem(25);
+    img {
+      height: rem(76);
+    }
+  }
+}
+
+/* 인기태그 */
+.popular-tags {
+  background: $gray8;
+  padding: rem(19) 0 rem(20) $content-space;
+
+  dt {
+    @extend .fs15m;
+    margin-bottom: rem(18);
+  }
+
+  dd {
+    margin: rem(-7) 0 0 rem(-5);
+  }
+
+  span {
+    @extend .fs13r;
+    display: inline-flex;
+    height: rem(28);
+    align-items: center;
+    background: $white;
+    border-radius: rem(14);
+    padding: 0 rem(12) rem(1);
+    margin: rem(7) 0 0 rem(5);
+  }
+}

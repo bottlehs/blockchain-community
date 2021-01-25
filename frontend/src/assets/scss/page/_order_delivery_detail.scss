@@ -1,0 +1,160 @@
+@charset "UTF-8";
+
+.page-delivery-detail {}
+
+.delivery-detail {
+  margin: 0 $content-space;
+
+  &__date {
+    @extend .fs17m;
+    text-align: center;
+    margin: rem(25) 0 rem(34);
+  }
+
+  &__step {
+    display: flex;
+    justify-content: space-between;
+    width: rem(295);
+    margin: 0 auto;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: rem(27);
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: $gray6;
+    }
+
+    li {
+      width: rem(55);
+      position: relative;
+      text-align: center;
+    }
+
+    p {
+      @extend .fs13r;
+      margin-top: rem(11);
+    }
+
+    span {
+      @extend .fs12b;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: rem(-1);
+      left: rem(-2);
+      border: 2px solid $white;
+      background: $color4;
+      color: $white;
+      width: rem(26);
+      height: rem(26);
+      border-radius: 100%;
+      font-family: $fontNotoSans;
+      box-shadow: rem(5) rem(5) rem(5) $transparent-color6;
+    }
+
+    .active p {
+      @extend .fs13m;
+      color: $colorMain1;
+    }
+  }
+
+  &__info {
+    margin-top: rem(36);
+    border-bottom: 1px solid $gray6;
+    padding-bottom: rem(27);
+
+    li {
+      display: flex;
+      padding: 0 rem(15);
+
+      & + li {
+        margin-top: rem(20);
+      }
+    }
+
+    span {
+      @extend .fs12r;
+      width: rem(73);
+      color: $gray3;
+    }
+
+    em {
+      @extend .fs13m;
+      position: relative;
+      top: rem(-1);
+    }
+  }
+
+  &__state {
+    position: relative;
+    margin-top: rem(21);
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: rem(10);
+      top: rem(10);
+      bottom: rem(10);
+      width: 1px;
+      background: $gray6;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      line-height: 1.35;
+      color: $gray3;
+
+      &:before {
+        content: '';
+        border: 1px solid $gray6;
+        border-radius: 100%;
+        width: rem(11);
+        height: rem(11);
+        background: $white;
+        position: relative;
+        z-index: 2;
+        margin-left: rem(5);
+      }
+
+      & + li {
+        margin-top: rem(12);
+      }
+    }
+
+    .date {
+      @extend .fs12m;
+      margin-left: rem(20);
+      width: rem(91);
+    }
+
+    .pos {
+      @extend .fs13m;
+      width: rem(109);
+      letter-spacing: -0.03em;
+      position: relative;
+      top: rem(-2);
+    }
+
+    .state {
+      @extend .fs13m;
+      letter-spacing: -0.03em;
+      position: relative;
+      top: rem(-2);
+    }
+
+    li.active {
+      color: $black;
+
+      &:before {
+        border-color: $colorMain1;
+        background: $colorMain1;
+      }
+    }
+  }
+}

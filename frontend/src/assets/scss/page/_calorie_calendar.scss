@@ -1,0 +1,185 @@
+@charset "UTF-8";
+
+.page-calorie-calendar {
+  .page-sec__top {
+    .nav-bar {
+      background: transparent;
+      border-bottom-width: 0;
+    }
+  }
+}
+
+.calorie-calendar {
+  padding-top: rem(18);
+}
+
+.calorie-detail {
+  margin-top: rem(22);
+  background: $gray8;
+  padding: rem(25) $content-space rem(40);
+}
+
+.calorie-data,
+.calorie-challenge {
+  li {
+    background: $white;
+    box-shadow: rem(5) rem(5) rem(10) $transparent-color6;
+    border-radius: rem(10);
+  }
+
+  &__label {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+
+    strong {
+      @extend .fs25b;
+      position: relative;
+      top: rem(-2);
+    }
+
+    em {
+      @extend .fs18r;
+      position: relative;
+      top: rem(2);
+      margin-left: rem(1);
+    }
+  }
+}
+
+.calorie-data {
+  li {
+    display: flex;
+    padding: rem(22) rem(17) rem(21);
+    margin-bottom: rem(20);
+  }
+
+  &__label {
+    width: rem(140);
+
+    span {
+      display: block;
+      width: rem(32);
+      height: rem(32);
+      background: $gray8 50% no-repeat;
+      background-size: rem(20);
+      border-radius: 100%;
+      margin-right: rem(11);
+    }
+
+    strong {
+      @extend .fs25b;
+      position: relative;
+      top: rem(-2);
+    }
+
+    em {
+      @extend .fs18r;
+      position: relative;
+      top: rem(2);
+      margin-left: rem(1);
+    }
+  }
+
+  &__content {
+    padding-bottom: rem(1);
+
+    span {
+      @extend .fs15m;
+      display: block;
+      letter-spacing: -0.05em;
+    }
+
+    p {
+      @extend .fs14r;
+      color: $gray3;
+      margin-top: rem(7);
+      letter-spacing: -0.033em;
+    }
+  }
+}
+
+.calorie-challenge {
+  display: flex;
+  margin-bottom: rem(30);
+
+  li {
+    flex: 1;
+    padding: rem(18) rem(19) rem(23);
+
+    & + li {
+      margin-left: rem(16);
+    }
+  }
+
+  &__title {
+    @extend .fs14m;
+    letter-spacing: -0.03em;
+  }
+
+  &__label {
+    margin-top: rem(10);
+
+    em {
+      top: rem(1);
+      margin-left: rem(3);
+    }
+  }
+
+  &__date {
+    @extend .fs14r;
+    color: $gray3;
+    margin-top: rem(12);
+    letter-spacing: -0.025em;
+  }
+}
+
+.calorie-banner {
+  padding: rem(20) $content-space rem(30);
+
+  &__box {
+    position: relative;
+    display: block;
+    background: $gray8;
+    border-radius: rem(10);
+    padding: rem(17) 0 rem(19) rem(18);
+  }
+
+  .txt1 {
+    em {
+      @extend .fs16b;
+      letter-spacing: -0.025em;
+      color: $colorMain1;
+    }
+
+    span {
+      @extend .fs10r;
+      margin-left: rem(10);
+    }
+
+    svg {
+      top: rem(1);
+    }
+  }
+
+  .txt2 {
+    @extend .fs10l;
+    margin-top: rem(7);
+  }
+
+  .txt3 {
+    @extend .fs10r;
+    line-height: 1.4;
+    margin-top: rem(10);
+    letter-spacing: -0.015em;
+  }
+
+  .svg-image__crown {
+    position: absolute;
+    right: rem(23);
+    top: 50%;
+    margin-top: rem(-23);
+    width: rem(58.8);
+    height: rem(46.6);
+  }
+}

@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+svg {
+  position: relative;
+}
+
+.icon {
+  &-top {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    vertical-align: top;
+    border: 1px solid $gray4;
+    border-radius: 100%;
+    width: rem(40);
+    height: rem(40);
+    background: $white;
+  }
+
+  &-write {
+    border-radius: 100%;
+    box-shadow: 0 rem(10) rem(10) $transparent-color6;
+  }
+}
+
+.svg-image {
+  &__logo {
+    width: rem(117);
+    height: rem(28);
+  }
+
+  &__logo-short {
+    width: rem(47);
+    height: rem(28);
+
+    &--point {
+      fill: $colorMain1;
+    }
+  }
+
+  &__delivery1,
+  &__delivery2,
+  &__delivery3 {
+    width: rem(55);
+    height: rem(55);
+    border-radius: 100%;
+    border: 1px solid $gray6;
+    background: $white;
+
+    &--active {
+      background: $colorMain1;
+      border-color: $colorMain1;
+      fill: $white;
+    }
+  }
+
+  &__delivery1 {
+    use {
+      fill: none;
+      stroke: $black;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10;
+      stroke-width: 1.5px;
+    }
+
+    &--active {
+      use {
+        stroke: $white;
+      }
+    }
+  }
+
+  &__delivery3 {
+    &-path {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10;
+      stroke-width: 1.5px;
+    }
+
+    #svg-image__delivery3--active {
+      --primary-color: #ffffff;
+    }
+  }
+
+  &__crown {
+    width: rem(76.346);
+    height: rem(60.46);
+  }
+
+  &__photo1 {
+    width: rem(49.23);
+    height: rem(102.975);
+  }
+
+  &__photo2 {
+    width: rem(36.693);
+    height: rem(103.01);
+  }
+}

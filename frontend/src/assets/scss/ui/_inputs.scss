@@ -1,0 +1,307 @@
+@charset "UTF-8";
+
+.custom-input {
+  input, textarea {
+    @extend .fs15m;
+    width: 100%;
+    border: 1px solid $gray5;
+    letter-spacing: -0.03em;
+
+    &::placeholder {
+      @extend .fs15r;
+      color: $gray5
+    }
+  }
+
+  input {
+    height: rem($input-height);
+    line-height: rem($input-height);
+    border-radius: rem($input-radius);
+    padding: 0 rem($input-padding);
+  }
+
+  textarea {
+    border-radius: rem($textarea-radius);
+  }
+
+  &__length {
+    @extend .fs12r;
+    color: $gray1;
+    text-align: right;
+    margin-top: rem(10);
+  }
+}
+
+.custom-select {
+  &__box {
+    @extend .fs15r;
+    position: relative;
+  }
+
+  &__title {
+    position: relative;
+    border-radius: rem($input-radius);
+    border: 1px solid $gray5;
+    display: flex;
+    align-items: center;
+    padding: 0 rem($input-padding);
+    height: rem($input-height);
+    background: $white;
+    transition: $base-transition;
+
+    svg {
+      position: absolute;
+      right: rem(14);
+      top: 50%;
+      margin-top: rem(-7);
+      z-index: 3;
+      transition: $base-transition;
+    }
+  }
+
+  &__list {
+    z-index: -1;
+    width: 100%;
+    overflow: hidden;
+    max-height: 0;
+    transition: $base-transition;
+    background: $white;
+  }
+
+  &__list-box {
+    border: 1px solid $gray5;
+    margin-top: -1px;
+    border-bottom-left-radius: rem($input-radius);
+    border-bottom-right-radius: rem($input-radius);
+    max-height: rem($input-height * 3 - 2);
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: auto;
+  }
+
+  &__list-item {
+    border-top: 1px solid $gray5;
+    padding: 0 rem($input-padding);
+    margin-top: -1px;
+    line-height: rem($input-height - 1);
+  }
+
+  &.fixed dd {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 2;
+  }
+
+  &.active &__title {
+    background: $gray8;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  &.active &__list {
+    max-height: 100vh;
+  }
+}
+
+.custom-radio,
+.custom-check {
+  @extend .fs15r;
+
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  i, em {
+    display: block;
+    font-style: normal;
+  }
+}
+
+.custom-radio {
+  &__label {
+    position: relative;
+  }
+
+  &__text {
+    display: inline-block;
+  }
+
+  /* 기본 */
+  &--base &__item + &__item {
+    margin-top: rem(15);
+  }
+
+  &--base &__label {
+    display: inline-block;
+    padding-left: rem(22);
+    height: rem(22);
+    line-height: rem(21);
+  }
+
+  &--base &__text {
+    em {
+      margin-left: rem(7);
+      letter-spacing: -0.025em;
+      position: relative;
+      top: 1px;
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      border-radius: 100%;
+      background: $white;
+    }
+
+    &:before {
+      left: 0;
+      width: rem(22);
+      height: rem(22);
+      margin-top: rem(-11);
+      border: 1px solid $gray5;
+    }
+  }
+
+  &--base input:checked + &__text {
+    &:before {
+      border-color: $colorPoint1;
+    }
+
+    &:after {
+      left: rem(6);
+      width: rem(10);
+      height: rem(10);
+      margin-top: rem(-5);
+      background: $colorPoint1;
+    }
+  }
+
+  /* 카드 */
+  &--card {
+    display: flex;
+  }
+
+  &--card &__item {
+    flex: 1;
+    padding: 0 rem(5);
+  }
+
+  &--card &__label {
+    display: block;
+  }
+
+  &--card &__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: rem(81);
+    border: 1px solid $gray5;
+    border-radius: rem(10);
+    line-height: 1.35;
+    background: $white;
+  }
+
+  &--card input:checked + &__text {
+    border-width: 2px;
+    border-color: $colorPoint1;
+    color: $colorPoint1;
+    font-weight: 500;
+  }
+
+  /* 버튼 */
+  &--button {
+    display: flex;
+    flex-wrap: wrap;
+    margin: rem(-5);
+    padding: rem(20) 0;
+  }
+  &--button &__item {
+    flex: 1 0 auto;
+    width: 50%;
+  }
+  &--button &__label {
+    margin: rem(5);
+    display: block;
+  }
+  &--button &__text {
+    @extend .fs15m;
+    white-space: nowrap;
+    font-size: rem(15);
+    border: 1px solid $gray5;
+    width: 100%;
+    padding: 0 rem(5);
+    height: rem($button-size-md);
+    line-height: rem($button-size-md - 2);
+    border-radius: rem($button-size-md-radius);
+    display: inline-block;
+    text-align: center;
+    color: $black;
+    background: $white;
+  }
+  &--button input:checked + &__text {
+    border-color: $colorPoint1;
+    background: $colorPoint1;
+    color: $white;
+  }
+}
+
+.custom-check {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+
+  &__label {
+    position: relative;
+    display: inline-block;
+    padding-left: rem(18);
+    height: rem(18);
+    line-height: rem(17);
+
+    &:before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      background: $white;
+      width: rem(18);
+      height: rem(18);
+      margin-top: rem(-9);
+      border: 1px solid $gray5;
+      border-radius: rem(4);
+    }
+
+    svg {
+      position: absolute;
+      top: rem(3);
+      left: rem(3);
+    }
+
+    em {
+      @extend .fs13r;
+      letter-spacing: -0.02em;
+      display: block;
+      margin-left: rem(7);
+    }
+  }
+
+  input:checked + &__label {
+    &:before {
+      border-color: $colorPoint1;
+      background: $colorPoint1;
+    }
+  }
+}
