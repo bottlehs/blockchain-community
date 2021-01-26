@@ -20,8 +20,9 @@ jest.mock("./usStates.json", () => [
 ]);
 
 describe("testing-server-categories-routes", () => {
-  it("GET /api/categories - success", async () => {
+  it("GET /api/categories - success", async (done) => {
     const response = await request(app).get("/api/categories");
     expect(response.statusCode).toEqual(200);
+    done();
   });
 });

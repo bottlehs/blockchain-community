@@ -20,8 +20,9 @@ jest.mock("./usStates.json", () => [
 ]);
 
 describe("testing-server-dapps-routes", () => {
-  it("GET /api/dapps - success", async () => {
+  it("GET /api/dapps - success", async (done) => {
     const response = await request(app).get("/api/dapps");
     expect(response.statusCode).toEqual(200);
+    done();
   });
 });

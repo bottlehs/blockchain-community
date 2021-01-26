@@ -20,12 +20,13 @@ jest.mock("./usStates.json", () => [
 ]);
 
 describe("testing-server-oauth-routes", () => {
-  it("GET /api/oauth/token - success", async () => {
+  it("GET /api/oauth/token - success", async (done) => {
     let params = {
       email: "test@test.com",
       password: "test123"
     };
     const response = await request(app).post("/api/oauth/token").send(params);
     expect(response.statusCode).toEqual(200);
+    done();
   });
 });
