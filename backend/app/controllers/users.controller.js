@@ -6,6 +6,26 @@ const Pagination = require("../utils/pagination");
 // Create and Save a new User
 exports.create = (req, res) => {
   // Validate request
+  if (req.body.usersId) {
+    // Users ID 유무 체크
+    const User = db.users;
+    User.findByPk(req.body.usersId)
+      .then((data) => {
+        if (!data) {
+          res.status(400).send({
+            message: "Content can not be empty!",
+          });
+          return;
+        }
+      })
+      .catch((err) => {
+        res.status(400).send({
+          message: "Content can not be empty!",
+        });
+        return;
+      });
+  }
+
   if (!req.body.email) {
     res.status(400).send({
       message: "Content can not be empty!",
@@ -48,6 +68,7 @@ exports.create = (req, res) => {
     username: req.body.username,
     email: req.body.email,
     password: req.body.password,
+    ipAddress: req.headers["x-forwarded-for"] || req.connection.remoteAddress,
   };
 
   User.findOne({ where: { email: user.email } })
