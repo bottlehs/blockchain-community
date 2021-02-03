@@ -6,6 +6,26 @@ const Pagination = require("../utils/pagination");
 // Create and Save a new Posts
 exports.create = (req, res, next) => {
   // Validate request
+  if (req.body.usersId) {
+    // Users ID 유무 체크
+    const User = db.users;
+    User.findByPk(req.body.usersId)
+      .then((data) => {
+        if (!data) {
+          res.status(400).send({
+            message: "Content can not be empty!",
+          });
+          return;
+        }
+      })
+      .catch((err) => {
+        res.status(400).send({
+          message: "Content can not be empty!",
+        });
+        return;
+      });
+  }
+
   if (!req.body.categoriesId) {
     res.status(400).send({
       message: "Content can not be empty!",
@@ -30,102 +50,119 @@ exports.create = (req, res, next) => {
         return;
       });
   }
+
   if (!req.body.isOwner) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.contactEmail) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.logo) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.name) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.url) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.images) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.recommendTags) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.expectedMainnetTime) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.status) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
-  }      
+  }
+
   if (!req.body.state) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.abstract) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.description) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.articleLink) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.hasAffiliateLink) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.affiliateLink) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.onChain) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.chainsIds) {
     res.status(400).send({
       message: "Content can not be empty!",
@@ -136,18 +173,21 @@ exports.create = (req, res, next) => {
      * TODO : Chains ID 유무 체크
      */
   }
+
   if (!req.body.address) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
-  }        
+  }
+
   if (!req.body.hasToken) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
-  } 
+  }
+
   if (!req.body.tokenChainsId) {
     res.status(400).send({
       message: "Content can not be empty!",
@@ -158,42 +198,49 @@ exports.create = (req, res, next) => {
      * TODO : Chains ID 유무 체크
      */
   }
+
   if (!req.body.tokenCoingeckoLink) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.tokenContract) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.tokenLogo) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.tokenName) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.tokenTicker) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.decimal) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
+
   if (!req.body.decimal) {
     res.status(400).send({
       message: "Content can not be empty!",
@@ -203,7 +250,7 @@ exports.create = (req, res, next) => {
 
   // Create a Dapp
   const dapp = {
-    usersId: req.user.id,
+    usersId: req.body.usersId ? req.body.usersId : req.user.id,
     categoriesId: req.body.categoriesId,
     isOwner: req.body.isOwner,
     contactEmail: req.body.contactEmail,

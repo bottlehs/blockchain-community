@@ -1,0 +1,49 @@
+{
+  "title" : "블록체인",
+  "showing_currentPage_to_pagesize_of_totalitems_entries": "<b>{totalItems}</b>개 항목 중 <b>{currentPage}</b>~<b>{pageSize}</b>개 표시",
+
+  "dashboard" : "대시보드",
+
+  "users" : "회원",
+  "users_email" : "이메일",
+  "users_password" : "비밀번호",
+  "users_firstname" : "이름",
+  "users_lastname" : "성",
+  "users_username" : "회원이름",
+  "users_languege" : "언어",
+  "users_country" : "국가",
+  "users_status" : "상태",
+
+  "posts" : "게시물",
+  "posts_users_id" : "users id (후보키)",
+  "posts_title" : "제목",
+  "posts_content" : "내용",
+  "posts_status" : "상태",
+  "posts_comments_status" : "댓글 상태",
+  "posts_type" : "유형",
+  "posts_comments_count" : "댓글수",
+
+  "inquires" : "문의",
+  "inquires_users_id" : "users id (후보키)",
+  "inquires_question" : "질문",
+  "inquires_answer" : "답변",
+  "inquires_status" : "상태",
+
+  "faqs" : "자주묻는질문",
+  "faqs_question" : "질문",
+  "faqs_answer" : "답변",
+  "faqs_status" : "상태",
+
+  "comments" : "댓글",
+  "comments_posts_id" : "posts id (후보키)",
+  "comments_users_id" : "users id (후보키)",
+  "comments_parent" : "comments id (대댓글 부모키)",
+  "comments_content" : "내용",
+  "comments_type" : "유형",
+
+  "categories" : "카테고리",
+
+  "chains" : "체인",
+
+  "dapps" : "디앱"
+}
