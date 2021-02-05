@@ -1,6 +1,9 @@
 <template>
   <div class="view">
-    dashboard
+    <div v-if="wait" class="d-flex justify-content-center mb-3">
+      <b-spinner label="Loading..."></b-spinner>
+    </div>
+    <div v-else></div>
   </div>
 </template>
 
