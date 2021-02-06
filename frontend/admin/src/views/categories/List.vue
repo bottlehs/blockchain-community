@@ -112,34 +112,29 @@ export default {
       fields: [
         {
           /**
-           * posts id (후보키) */
-          key: "postsId",
-          label: this.$t("comments_posts_id")
-        },
-        {
-          /**
-           * users id (후보키) */
-          key: "usersId",
-          label: this.$t("comments_users_id")
-        },
-        {
-          /**
-           * comments id (대댓글 부모키) */
-          key: "parent",
-          label: this.$t("comments_parent")
-        },
-        {
-          /**
-           * 내용 */
-          key: "content",
-          label: this.$t("comments_content"),
+           * 카테고리명 */
+          key: "name",
+          label: this.$t("categories_name"),
           isSearch: true
         },
         {
           /**
-           * 유형 */
-          key: "type",
-          label: this.$t("comments_type")
+           * 카테고리 배경색(HEX) */
+          key: "backgroundColor",
+          label: this.$t("categories_background_color")
+        },
+        {
+          /**
+           * 카테고리 아이콘 */
+          key: "icon",
+          label: this.$t("categories_icon")
+        },
+        {
+          /**
+           * 상태 */
+          key: "status",
+          label: this.$t("categories_status"),
+          isSearch: true
         },
         {
           /**
