@@ -112,34 +112,39 @@ export default {
       fields: [
         {
           /**
-           * posts id (후보키) */
-          key: "postsId",
-          label: this.$t("comments_posts_id")
+           * 블록체인명 */
+          key: "name",
+          label: this.$t("chains_name")
         },
         {
           /**
-           * users id (후보키) */
-          key: "usersId",
-          label: this.$t("comments_users_id")
+           * 아이콘 컬러(HEX) */
+          key: "colorIcon",
+          label: this.$t("chains_color_icon")
         },
         {
           /**
-           * comments id (대댓글 부모키) */
-          key: "parent",
-          label: this.$t("comments_parent")
+           * 아이콘 */
+          key: "icon",
+          label: this.$t("chains_icon")
         },
         {
           /**
-           * 내용 */
-          key: "content",
-          label: this.$t("comments_content"),
-          isSearch: true
+           * 새로운 아이콘 */
+          key: "iconNew",
+          label: this.$t("chains_icon_new")
         },
         {
           /**
-           * 유형 */
-          key: "type",
-          label: this.$t("comments_type")
+           * 토큰 지원여부 */
+          key: "supportToken",
+          label: this.$t("chains_support_token")
+        },
+        {
+          /**
+           * 상태 */
+          key: "status",
+          label: this.$t("chains_status")
         },
         {
           /**
