@@ -14,7 +14,9 @@
           v-model="search.q"
           :placeholder="$t('input_search')"
         ></b-form-input>
-        <b-button variant="primary" type="submit">{{ $t('button_search') }}</b-button>
+        <b-button variant="primary" type="submit">{{
+          $t("button_search")
+        }}</b-button>
       </b-form>
 
       <!-- 검색 결과 -->
@@ -198,25 +200,25 @@ export default {
     /**
      * mounted
      */
-    let type = '';
+    let type = "";
     this.fields.forEach(row => {
-      if ( row.isSearch ) {
+      if (row.isSearch) {
         this.searchTypeOptions.push({
           text: row.label,
           value: row.key
         });
 
-        if ( this.search.type == row.key ) {
+        if (this.search.type == row.key) {
           type = row.key;
-        };
+        }
       }
     });
 
-    if ( type ) {
-      this.search.type = type
+    if (type) {
+      this.search.type = type;
     } else {
       this.search.type = this.searchTypeOptions[0].value;
-    };
+    }
   },
   computed: {
     /**

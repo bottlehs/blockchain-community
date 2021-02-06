@@ -14,7 +14,9 @@
           v-model="search.q"
           :placeholder="$t('input_search')"
         ></b-form-input>
-        <b-button variant="primary" type="submit">{{ $t('button_search') }}</b-button>
+        <b-button variant="primary" type="submit">{{
+          $t("button_search")
+        }}</b-button>
       </b-form>
 
       <!-- 검색 결과 -->
@@ -33,10 +35,10 @@
           </div>
         </template>
         <template #cell(actions)="row">
-          <b-link :to="{ name: 'CommentsId', params: { id: row.item.id } }">
+          <b-link :to="{ name: 'ChainsId', params: { id: row.item.id } }">
             <b-icon-search></b-icon-search>
           </b-link>
-          <b-link :to="{ name: 'CommentsEditId', params: { id: row.item.id } }">
+          <b-link :to="{ name: 'ChainsEditId', params: { id: row.item.id } }">
             <b-icon-pencil></b-icon-pencil>
           </b-link>
         </template>
@@ -114,7 +116,8 @@ export default {
           /**
            * 블록체인명 */
           key: "name",
-          label: this.$t("chains_name")
+          label: this.$t("chains_name"),
+          isSearch: true
         },
         {
           /**
@@ -191,25 +194,25 @@ export default {
     /**
      * mounted
      */
-    let type = '';
+    let type = "";
     this.fields.forEach(row => {
-      if ( row.isSearch ) {
+      if (row.isSearch) {
         this.searchTypeOptions.push({
           text: row.label,
           value: row.key
         });
 
-        if ( this.search.type == row.key ) {
+        if (this.search.type == row.key) {
           type = row.key;
-        };
+        }
       }
     });
 
-    if ( type ) {
-      this.search.type = type
+    if (type) {
+      this.search.type = type;
     } else {
       this.search.type = this.searchTypeOptions[0].value;
-    };
+    }
   },
   computed: {
     /**
