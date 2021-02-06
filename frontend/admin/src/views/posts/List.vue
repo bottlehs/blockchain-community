@@ -89,6 +89,7 @@ export default {
     return {
       /**
        * search : 검색 데이터
+       * searchTypeOptions : 검색 항목
        * fields : 검색결과 페이지 리스트 필드
        * items : 응답 리스트 데이터
        * page : 검색결과 페이지 데이터
@@ -107,6 +108,7 @@ export default {
         type: "",
         q: ""
       },
+      searchTypeOptions: [],
       fields: [
         {
           /**
@@ -241,7 +243,6 @@ export default {
 
       this.search.q = "";
     },
-
     findAll() {
       this.wait = true;
 

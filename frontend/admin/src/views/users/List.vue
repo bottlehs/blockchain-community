@@ -263,7 +263,6 @@ export default {
 
       this.search.q = "";
     },
-
     findAll() {
       this.wait = true;
 
