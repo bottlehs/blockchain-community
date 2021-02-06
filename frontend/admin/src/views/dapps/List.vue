@@ -112,34 +112,173 @@ export default {
       fields: [
         {
           /**
-           * posts id (후보키) */
-          key: "postsId",
-          label: this.$t("comments_posts_id")
-        },
-        {
-          /**
            * users id (후보키) */
           key: "usersId",
-          label: this.$t("comments_users_id")
+          label: this.$t("dapps_users_id")
         },
         {
           /**
-           * comments id (대댓글 부모키) */
-          key: "parent",
-          label: this.$t("comments_parent")
+           * categories id (후보키) */
+          key: "categoriesId",
+          label: this.$t("dapps_categories_id")
         },
         {
           /**
-           * 내용 */
-          key: "content",
-          label: this.$t("comments_content"),
+           * 소유자 여부 */
+          key: "isOwner",
+          label: this.$t("dapps_is_owner")
+        },
+        {
+          /**
+           * 연락 가능한 이메일 */
+          key: "contactEmail",
+          label: this.$t("dapps_contact_email")
+        },
+        {
+          /**
+           * 로고 */
+          key: "logo",
+          label: this.$t("dapps_logo")
+        },
+        {
+          /**
+           * 이름 */
+          key: "name",
+          label: this.$t("dapps_name"),
           isSearch: true
         },
         {
           /**
-           * 유형 */
-          key: "type",
-          label: this.$t("comments_type")
+           * 웹사이트 주소 */
+          key: "url",
+          label: this.$t("dapps_url"),
+          isSearch: true
+        },
+        {
+          /**
+           * 프리뷰 이미지 */
+          key: "images",
+          label: this.$t("dapps_images")
+        },
+        {
+          /**
+           * 추천태그 */
+          key: "recommendTags",
+          label: this.$t("dapps_recommend_tags")
+        },
+        {
+          /**
+           * 메인넷 예상 공개일 */
+          key: "expectedMainnetTime",
+          label: this.$t("dapps_expected_mainnet_time")
+        },
+        {
+          /**
+           * 상태 */
+          key: "status",
+          label: this.$t("dapps_status")
+        },
+        {
+          /**
+           * 디앱 상태 */
+          key: "state",
+          label: this.$t("dapps_state")
+        },
+        {
+          /**
+           * 짧은 설명 */
+          key: "abstract",
+          label: this.$t("dapps_abstract")
+        },
+        {
+          /**
+           * 긴 설명 */
+          key: "description",
+          label: this.$t("dapps_description")
+        },
+        {
+          /**
+           * 제품 리뷰 기사 */
+          key: "articleLink",
+          label: this.$t("dapps_article_link")
+        },
+        {
+          /**
+           * 계열사 링크 여부 */
+          key: "hasAffiliateLink",
+          label: this.$t("dapps_has_affiliate_link")
+        },
+        {
+          /**
+           * 계열사 링크 */
+          key: "affiliateLink",
+          label: this.$t("dapps_affiliate_link")
+        },
+        {
+          /**
+           * 온 체인 여부 */
+          key: "onChain",
+          label: this.$t("dapps_on_chain")
+        },
+        {
+          /**
+           * chains id (후보키) / 다중 선택 */
+          key: "chainsIds",
+          label: this.$t("dapps_chains_ids")
+        },
+        {
+          /**
+           * 스마트컨트렉트 주소 */
+          key: "address",
+          label: this.$t("dapps_address")
+        },
+        {
+          /**
+           * 토큰여부 */
+          key: "hasToken",
+          label: this.$t("dapps_has_token")
+        },
+        {
+          /**
+           * chains id (후보키) */
+          key: "tokenChainsId",
+          label: this.$t("dapps_token_chains_id")
+        },
+        {
+          /**
+           * 코인 링크 */
+          key: "tokenCoingeckoLink",
+          label: this.$t("dapps_token_coingecko_link")
+        },
+        {
+          /**
+           * Token Contract */
+          key: "tokenContract",
+          label: this.$t("dapps_token_contract")
+        },
+        {
+          /**
+           * Token Logo 이미지 */
+          key: "tokenLogo",
+          label: this.$t("dapps_token_logo")
+        },
+        {
+          /**
+           * Token Name ( Ticker of your token ) */
+          key: "tokenName",
+          label: this.$t("dapps_token_name")
+        },
+        {
+          /**
+           * Token Ticker ( Ticker of your token ) */
+          key: "tokenTicker",
+          label: this.$t("dapps_token_ticker")
+        },
+        {
+          /**
+           * decimal */
+          key: "decimal",
+          label: this.$t("dapps_decimal")
         },
         {
           /**
