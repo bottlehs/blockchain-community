@@ -12,10 +12,11 @@
         <b-form-input
           class="mb-2 mr-sm-2 mb-sm-0"
           v-model="search.q"
-          placeholder="검색"
+          :placeholder="$t('input_search')"
         ></b-form-input>
-        <b-button variant="primary" type="submit">검색</b-button>
+        <b-button variant="primary" type="submit">{{ $t('button_search') }}</b-button>
       </b-form>
+
       <!-- 검색 결과 -->
       <b-table
         striped
@@ -235,7 +236,7 @@ export default {
       this.search.type = type
     } else {
       this.search.type = this.searchTypeOptions[0].value;
-    }
+    };
   },
   computed: {
     /**
@@ -259,6 +260,8 @@ export default {
     },
     onReset(evt) {
       evt.preventDefault();
+
+      this.search.q = "";
     },
 
     findAll() {

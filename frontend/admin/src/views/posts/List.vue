@@ -2,7 +2,20 @@
   <div class="list">
     <b-container fluid>
       <!-- 검색 폼 -->
-      <b-row> </b-row>
+      <b-form inline @submit="onSubmit" @reset="onReset">
+        <b-form-select
+          class="mb-2 mr-sm-2 mb-sm-0"
+          v-model="search.type"
+          :options="searchTypeOptions"
+          :value="null"
+        ></b-form-select>
+        <b-form-input
+          class="mb-2 mr-sm-2 mb-sm-0"
+          v-model="search.q"
+          :placeholder="$t('input_search')"
+        ></b-form-input>
+        <b-button variant="primary" type="submit">{{ $t('button_search') }}</b-button>
+      </b-form>
 
       <!-- 검색 결과 -->
       <b-table
@@ -105,7 +118,8 @@ export default {
           /**
            * 제목 */
           key: "title",
-          label: this.$t("posts_title")
+          label: this.$t("posts_title"),
+          isSearch: true
         },
         {
           /**
@@ -182,6 +196,25 @@ export default {
     /**
      * mounted
      */
+    let type = '';
+    this.fields.forEach(row => {
+      if ( row.isSearch ) {
+        this.searchTypeOptions.push({
+          text: row.label,
+          value: row.key
+        });
+
+        if ( this.search.type == row.key ) {
+          type = row.key;
+        };
+      }
+    });
+
+    if ( type ) {
+      this.search.type = type
+    } else {
+      this.search.type = this.searchTypeOptions[0].value;
+    };
   },
   computed: {
     /**
@@ -198,6 +231,17 @@ export default {
     /**
      * methods
      */
+    async onSubmit(evt) {
+      evt.preventDefault();
+
+      this.findAll();
+    },
+    onReset(evt) {
+      evt.preventDefault();
+
+      this.search.q = "";
+    },
+
     findAll() {
       this.wait = true;
 
