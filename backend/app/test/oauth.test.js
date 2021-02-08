@@ -22,7 +22,7 @@ jest.mock("./usStates.json", () => [
 describe("testing-server-oauth-routes", () => {
   it("GET /api/oauth/login - success", async (done) => {
     let params = {
-      email: "a9cc15ad-de55-4550-8bfb-50b58acd1818@email.com",
+      email: "484338a2-dab2-4827-a8e4-1f0b9d996695@email.com",
       password: "password123"
     };
     const response = await request(app).post("/api/oauth/login").send(params);
