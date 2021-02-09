@@ -284,6 +284,20 @@ export default {
         },
         {
           /**
+           * 생성날자
+           */
+          key: "created_at",
+          label: this.$t("dapps_created_at")
+        },
+        {
+          /**
+           * 수정날짜
+           */
+          key: "updated_at",
+          label: this.$t("dapps_updated_at")
+        },
+        {
+          /**
            * Action
            */
           key: "actions",

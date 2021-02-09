@@ -142,6 +142,20 @@ export default {
         },
         {
           /**
+           * 생성날자
+           */
+          key: "created_at",
+          label: this.$t("categories_created_at")
+        },
+        {
+          /**
+           * 수정날짜
+           */
+          key: "updated_at",
+          label: this.$t("categories_updated_at")
+        },
+        {
+          /**
            * Action
            */
           key: "actions",

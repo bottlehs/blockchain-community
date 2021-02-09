@@ -43,17 +43,15 @@ export default {
       formWait: false,
       form: {
         /**
-         * postsId: posts id (후보키)
-         * usersId: users id (후보키)
-         * parent: comments id (대댓글 부모키)
-         * content: 내용
-         * type: 유형
+         * name: 카테고리명
+         * backgroundColor: 카테고리 배경색(HEX)
+         * icon: 카테고리 아이콘
+         * status: 상태
          */
-        postsId: "",
-        usersId: "",
-        parent: "",
-        content: "",
-        type: ""
+        name: "",
+        backgroundColor: "",
+        icon: "",
+        status: ""
       },
       item: {}
     };
@@ -100,20 +98,17 @@ export default {
           this.item = data;
 
           // form
-          if (Object.prototype.hasOwnProperty.call(data, "postsId")) {
-            this.form.postsId = data.postsId;
+          if (Object.prototype.hasOwnProperty.call(data, "name")) {
+            this.form.name = data.name;
           }
-          if (Object.prototype.hasOwnProperty.call(data, "usersId")) {
-            this.form.usersId = data.usersId;
+          if (Object.prototype.hasOwnProperty.call(data, "backgroundColor")) {
+            this.form.backgroundColor = data.backgroundColor;
           }
-          if (Object.prototype.hasOwnProperty.call(data, "parent")) {
-            this.form.parent = data.parent;
+          if (Object.prototype.hasOwnProperty.call(data, "icon")) {
+            this.form.icon = data.icon;
           }
-          if (Object.prototype.hasOwnProperty.call(data, "content")) {
-            this.form.content = data.content;
-          }
-          if (Object.prototype.hasOwnProperty.call(data, "type")) {
-            this.form.type = data.type;
+          if (Object.prototype.hasOwnProperty.call(data, "status")) {
+            this.form.status = data.status;
           }
 
           this.wait = false;
