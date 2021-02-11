@@ -2,7 +2,22 @@
   <div class="list">
     <b-container fluid>
       <!-- 검색 폼 -->
-      <b-row> </b-row>
+      <b-form inline @submit="onSubmit" @reset="onReset">
+        <b-form-select
+          class="mb-2 mr-sm-2 mb-sm-0"
+          v-model="search.type"
+          :options="searchTypeOptions"
+          :value="null"
+        ></b-form-select>
+        <b-form-input
+          class="mb-2 mr-sm-2 mb-sm-0"
+          v-model="search.q"
+          :placeholder="$t('input_search')"
+        ></b-form-input>
+        <b-button variant="primary" type="submit">{{
+          $t("button_search")
+        }}</b-button>
+      </b-form>
 
       <!-- 검색 결과 -->
       <b-table
@@ -20,10 +35,10 @@
           </div>
         </template>
         <template #cell(actions)="row">
-          <b-link :to="{ name: 'CommentsId', params: { id: row.item.id } }">
+          <b-link :to="{ name: 'ChainsId', params: { id: row.item.id } }">
             <b-icon-search></b-icon-search>
           </b-link>
-          <b-link :to="{ name: 'CommentsEditId', params: { id: row.item.id } }">
+          <b-link :to="{ name: 'ChainsEditId', params: { id: row.item.id } }">
             <b-icon-pencil></b-icon-pencil>
           </b-link>
         </template>
@@ -76,6 +91,7 @@ export default {
     return {
       /**
        * search : 검색 데이터
+       * searchTypeOptions : 검색 항목
        * fields : 검색결과 페이지 리스트 필드
        * items : 응답 리스트 데이터
        * page : 검색결과 페이지 데이터
@@ -94,36 +110,44 @@ export default {
         type: "",
         q: ""
       },
+      searchTypeOptions: [],
       fields: [
         {
           /**
-           * posts id (후보키) */
-          key: "postsId",
-          label: this.$t("comments_posts_id")
+           * 블록체인명 */
+          key: "name",
+          label: this.$t("chains_name"),
+          isSearch: true
         },
         {
           /**
-           * users id (후보키) */
-          key: "usersId",
-          label: this.$t("comments_users_id")
+           * 아이콘 컬러(HEX) */
+          key: "colorIcon",
+          label: this.$t("chains_color_icon")
         },
         {
           /**
-           * comments id (대댓글 부모키) */
-          key: "parent",
-          label: this.$t("comments_parent")
+           * 아이콘 */
+          key: "icon",
+          label: this.$t("chains_icon")
         },
         {
           /**
-           * 내용 */
-          key: "content",
-          label: this.$t("comments_content")
+           * 새로운 아이콘 */
+          key: "iconNew",
+          label: this.$t("chains_icon_new")
         },
         {
           /**
-           * 유형 */
-          key: "type",
-          label: this.$t("comments_type")
+           * 토큰 지원여부 */
+          key: "supportToken",
+          label: this.$t("chains_support_token")
+        },
+        {
+          /**
+           * 상태 */
+          key: "status",
+          label: this.$t("chains_status")
         },
         {
           /**
@@ -170,6 +194,25 @@ export default {
     /**
      * mounted
      */
+    let type = "";
+    this.fields.forEach(row => {
+      if (row.isSearch) {
+        this.searchTypeOptions.push({
+          text: row.label,
+          value: row.key
+        });
+
+        if (this.search.type == row.key) {
+          type = row.key;
+        }
+      }
+    });
+
+    if (type) {
+      this.search.type = type;
+    } else {
+      this.search.type = this.searchTypeOptions[0].value;
+    }
   },
   computed: {
     /**
@@ -186,6 +229,16 @@ export default {
     /**
      * methods
      */
+    async onSubmit(evt) {
+      evt.preventDefault();
+
+      this.findAll();
+    },
+    onReset(evt) {
+      evt.preventDefault();
+
+      this.search.q = "";
+    },
     findAll() {
       this.wait = true;
 

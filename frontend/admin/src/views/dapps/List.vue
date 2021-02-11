@@ -2,7 +2,22 @@
   <div class="list">
     <b-container fluid>
       <!-- 검색 폼 -->
-      <b-row> </b-row>
+      <b-form inline @submit="onSubmit" @reset="onReset">
+        <b-form-select
+          class="mb-2 mr-sm-2 mb-sm-0"
+          v-model="search.type"
+          :options="searchTypeOptions"
+          :value="null"
+        ></b-form-select>
+        <b-form-input
+          class="mb-2 mr-sm-2 mb-sm-0"
+          v-model="search.q"
+          :placeholder="$t('input_search')"
+        ></b-form-input>
+        <b-button variant="primary" type="submit">{{
+          $t("button_search")
+        }}</b-button>
+      </b-form>
 
       <!-- 검색 결과 -->
       <b-table
@@ -20,10 +35,10 @@
           </div>
         </template>
         <template #cell(actions)="row">
-          <b-link :to="{ name: 'CommentsId', params: { id: row.item.id } }">
+          <b-link :to="{ name: 'DappsId', params: { id: row.item.id } }">
             <b-icon-search></b-icon-search>
           </b-link>
-          <b-link :to="{ name: 'CommentsEditId', params: { id: row.item.id } }">
+          <b-link :to="{ name: 'DappsEditId', params: { id: row.item.id } }">
             <b-icon-pencil></b-icon-pencil>
           </b-link>
         </template>
@@ -76,6 +91,7 @@ export default {
     return {
       /**
        * search : 검색 데이터
+       * searchTypeOptions : 검색 항목
        * fields : 검색결과 페이지 리스트 필드
        * items : 응답 리스트 데이터
        * page : 검색결과 페이지 데이터
@@ -94,36 +110,191 @@ export default {
         type: "",
         q: ""
       },
+      searchTypeOptions: [],
       fields: [
-        {
-          /**
-           * posts id (후보키) */
-          key: "postsId",
-          label: this.$t("comments_posts_id")
-        },
         {
           /**
            * users id (후보키) */
           key: "usersId",
-          label: this.$t("comments_users_id")
+          label: this.$t("dapps_users_id")
         },
         {
           /**
-           * comments id (대댓글 부모키) */
-          key: "parent",
-          label: this.$t("comments_parent")
+           * categories id (후보키) */
+          key: "categoriesId",
+          label: this.$t("dapps_categories_id")
         },
         {
           /**
-           * 내용 */
-          key: "content",
-          label: this.$t("comments_content")
+           * 소유자 여부 */
+          key: "isOwner",
+          label: this.$t("dapps_is_owner")
         },
         {
           /**
-           * 유형 */
-          key: "type",
-          label: this.$t("comments_type")
+           * 연락 가능한 이메일 */
+          key: "contactEmail",
+          label: this.$t("dapps_contact_email")
+        },
+        {
+          /**
+           * 로고 */
+          key: "logo",
+          label: this.$t("dapps_logo")
+        },
+        {
+          /**
+           * 이름 */
+          key: "name",
+          label: this.$t("dapps_name"),
+          isSearch: true
+        },
+        {
+          /**
+           * 웹사이트 주소 */
+          key: "url",
+          label: this.$t("dapps_url"),
+          isSearch: true
+        },
+        {
+          /**
+           * 프리뷰 이미지 */
+          key: "images",
+          label: this.$t("dapps_images")
+        },
+        {
+          /**
+           * 추천태그 */
+          key: "recommendTags",
+          label: this.$t("dapps_recommend_tags")
+        },
+        {
+          /**
+           * 메인넷 예상 공개일 */
+          key: "expectedMainnetTime",
+          label: this.$t("dapps_expected_mainnet_time")
+        },
+        {
+          /**
+           * 상태 */
+          key: "status",
+          label: this.$t("dapps_status")
+        },
+        {
+          /**
+           * 디앱 상태 */
+          key: "state",
+          label: this.$t("dapps_state")
+        },
+        {
+          /**
+           * 짧은 설명 */
+          key: "abstract",
+          label: this.$t("dapps_abstract")
+        },
+        {
+          /**
+           * 긴 설명 */
+          key: "description",
+          label: this.$t("dapps_description")
+        },
+        {
+          /**
+           * 제품 리뷰 기사 */
+          key: "articleLink",
+          label: this.$t("dapps_article_link")
+        },
+        {
+          /**
+           * 계열사 링크 여부 */
+          key: "hasAffiliateLink",
+          label: this.$t("dapps_has_affiliate_link")
+        },
+        {
+          /**
+           * 계열사 링크 */
+          key: "affiliateLink",
+          label: this.$t("dapps_affiliate_link")
+        },
+        {
+          /**
+           * 온 체인 여부 */
+          key: "onChain",
+          label: this.$t("dapps_on_chain")
+        },
+        {
+          /**
+           * chains id (후보키) / 다중 선택 */
+          key: "chainsIds",
+          label: this.$t("dapps_chains_ids")
+        },
+        {
+          /**
+           * 스마트컨트렉트 주소 */
+          key: "address",
+          label: this.$t("dapps_address")
+        },
+        {
+          /**
+           * 토큰여부 */
+          key: "hasToken",
+          label: this.$t("dapps_has_token")
+        },
+        {
+          /**
+           * chains id (후보키) */
+          key: "tokenChainsId",
+          label: this.$t("dapps_token_chains_id")
+        },
+        {
+          /**
+           * 코인 링크 */
+          key: "tokenCoingeckoLink",
+          label: this.$t("dapps_token_coingecko_link")
+        },
+        {
+          /**
+           * Token Contract */
+          key: "tokenContract",
+          label: this.$t("dapps_token_contract")
+        },
+        {
+          /**
+           * Token Logo 이미지 */
+          key: "tokenLogo",
+          label: this.$t("dapps_token_logo")
+        },
+        {
+          /**
+           * Token Name ( Ticker of your token ) */
+          key: "tokenName",
+          label: this.$t("dapps_token_name")
+        },
+        {
+          /**
+           * Token Ticker ( Ticker of your token ) */
+          key: "tokenTicker",
+          label: this.$t("dapps_token_ticker")
+        },
+        {
+          /**
+           * decimal */
+          key: "decimal",
+          label: this.$t("dapps_decimal")
+        },
+        {
+          /**
+           * 생성날자
+           */
+          key: "created_at",
+          label: this.$t("dapps_created_at")
+        },
+        {
+          /**
+           * 수정날짜
+           */
+          key: "updated_at",
+          label: this.$t("dapps_updated_at")
         },
         {
           /**
@@ -170,6 +341,25 @@ export default {
     /**
      * mounted
      */
+    let type = "";
+    this.fields.forEach(row => {
+      if (row.isSearch) {
+        this.searchTypeOptions.push({
+          text: row.label,
+          value: row.key
+        });
+
+        if (this.search.type == row.key) {
+          type = row.key;
+        }
+      }
+    });
+
+    if (type) {
+      this.search.type = type;
+    } else {
+      this.search.type = this.searchTypeOptions[0].value;
+    }
   },
   computed: {
     /**
@@ -186,6 +376,16 @@ export default {
     /**
      * methods
      */
+    async onSubmit(evt) {
+      evt.preventDefault();
+
+      this.findAll();
+    },
+    onReset(evt) {
+      evt.preventDefault();
+
+      this.search.q = "";
+    },
     findAll() {
       this.wait = true;
 

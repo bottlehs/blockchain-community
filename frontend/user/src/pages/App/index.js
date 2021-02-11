@@ -4,6 +4,7 @@ import './style.css';
 // BrowserRouter as Router
 import Home from '../Home';
 import Terms from '../Terms';
+import Topics from '../Topics';
 
 function App() {
   return (
@@ -15,11 +16,16 @@ function App() {
         <ul>
           <li>
             <Link to="/terms">Terms</Link>
+
+            </li>
+            <li>
+            <Link to="/topics">Topics</Link>
           </li>
         </ul>
       </nav>
       <Route exact path="/" component={Home} />
       <Route path="/about" component={Terms} />
+      <Route path="/topics" component={Topics} />
     </div>
 </BrowserRouter>
   );

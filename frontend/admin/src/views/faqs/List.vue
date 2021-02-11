@@ -2,7 +2,22 @@
   <div class="list">
     <b-container fluid>
       <!-- 검색 폼 -->
-      <b-row> </b-row>
+      <b-form inline @submit="onSubmit" @reset="onReset">
+        <b-form-select
+          class="mb-2 mr-sm-2 mb-sm-0"
+          v-model="search.type"
+          :options="searchTypeOptions"
+          :value="null"
+        ></b-form-select>
+        <b-form-input
+          class="mb-2 mr-sm-2 mb-sm-0"
+          v-model="search.q"
+          :placeholder="$t('input_search')"
+        ></b-form-input>
+        <b-button variant="primary" type="submit">{{
+          $t("button_search")
+        }}</b-button>
+      </b-form>
 
       <!-- 검색 결과 -->
       <b-table
@@ -76,6 +91,7 @@ export default {
     return {
       /**
        * search : 검색 데이터
+       * searchTypeOptions : 검색 항목
        * fields : 검색결과 페이지 리스트 필드
        * items : 응답 리스트 데이터
        * page : 검색결과 페이지 데이터
@@ -94,12 +110,14 @@ export default {
         type: "",
         q: ""
       },
+      searchTypeOptions: [],
       fields: [
         {
           /**
            * 질문 */
           key: "question",
-          label: this.$t("faqs_question")
+          label: this.$t("faqs_question"),
+          isSearch: true
         },
         {
           /**
@@ -112,6 +130,20 @@ export default {
            * 상태 */
           key: "status",
           label: this.$t("faqs_status")
+        },
+        {
+          /**
+           * 생성날자
+           */
+          key: "created_at",
+          label: this.$t("faqs_created_at")
+        },
+        {
+          /**
+           * 수정날짜
+           */
+          key: "updated_at",
+          label: this.$t("faqs_updated_at")
         },
         {
           /**
@@ -158,6 +190,25 @@ export default {
     /**
      * mounted
      */
+    let type = "";
+    this.fields.forEach(row => {
+      if (row.isSearch) {
+        this.searchTypeOptions.push({
+          text: row.label,
+          value: row.key
+        });
+
+        if (this.search.type == row.key) {
+          type = row.key;
+        }
+      }
+    });
+
+    if (type) {
+      this.search.type = type;
+    } else {
+      this.search.type = this.searchTypeOptions[0].value;
+    }
   },
   computed: {
     /**
@@ -174,6 +225,16 @@ export default {
     /**
      * methods
      */
+    async onSubmit(evt) {
+      evt.preventDefault();
+
+      this.findAll();
+    },
+    onReset(evt) {
+      evt.preventDefault();
+
+      this.search.q = "";
+    },
     findAll() {
       this.wait = true;
 

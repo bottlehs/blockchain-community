@@ -81,6 +81,21 @@ export default {
           title: "comments",
           path: "/comments",
           name: "Comments"
+        },
+        {
+          title: "categories",
+          path: "/categories",
+          name: "Categories"
+        },
+        {
+          title: "chains",
+          path: "/chains",
+          name: "Chains"
+        },
+        {
+          title: "dapps",
+          path: "/dapps",
+          name: "Dapps"
         }
       ]
     };

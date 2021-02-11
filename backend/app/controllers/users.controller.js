@@ -103,7 +103,7 @@ exports.create = (req, res) => {
 // Retrieve all Users from the database.
 exports.findAll = (req, res) => {
   const { page, size, email } = req.query;
-  var condition = email ? { email: { [Op.email]: `%${email}%` } } : null;
+  var condition = email ? { email: { [Op.like]: `%${email}%` } } : null;
 
   const { limit, offset } = Pagination.getPagination(page, size);
 

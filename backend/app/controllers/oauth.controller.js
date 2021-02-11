@@ -51,7 +51,7 @@ exports.create = (req, res) => {
         refreshTokens[refreshToken] = data.email;
         res.json({ token: token, refreshToken: refreshToken });
       } else {
-        res.status(401).json({ msg: "Password is incorrect" });
+        res.status(401).json({ message: "Password is incorrect" });
       }
     })
     .catch((err) => {

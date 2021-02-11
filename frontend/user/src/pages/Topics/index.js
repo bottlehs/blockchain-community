@@ -1,12 +1,12 @@
 import React from 'react';
 import './style.css';
 
-function Terms() {
+function Topics() {
   return (
     <div>
-      Termsasdasdas
+      Topicsasd
     </div>
   );
 }
 
-export default Terms;
+export default Topics;
